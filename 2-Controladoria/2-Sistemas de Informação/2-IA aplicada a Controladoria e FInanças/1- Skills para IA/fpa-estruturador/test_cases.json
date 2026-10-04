@@ -1,0 +1,61 @@
+[
+  {
+    "id": "test_01_dre_simples",
+    "prompt": "tratar dados\n\nDRE - Março 2024\nReceita de Vendas: R$ 50.000\nCMV: R$ 18.000\nSalários: R$ 12.000\nMarketing: R$ 4.500\nAluguel: R$ 3.200\nEmpresa: Loja Alpha",
+    "description": "DRE simplificado com 5 lançamentos e empresa identificada",
+    "assertions": [
+      "A tabela CSV deve conter exatamente 17 colunas separadas por ponto e vírgula",
+      "Receita de Vendas deve ter VALOR positivo (50000.00)",
+      "CMV deve ter VALOR negativo (-18000.00)",
+      "Salários deve ter CC REDUZIDO = RH",
+      "Marketing deve ter CC REDUZIDO = MKT",
+      "EMPRESA deve ser 'Loja Alpha' em todas as linhas",
+      "FONTE deve ser 'DRE'",
+      "STATUS deve ser 'Realizado'",
+      "MÊS DE EMISSÃO deve ser '2024-03'"
+    ]
+  },
+  {
+    "id": "test_02_lancamentos_avulsos",
+    "prompt": "tratar dados\n\nPagamentos de fevereiro/2024:\n- 05/02/2024 - Google Ads - R$ 2.300\n- 12/02/2024 - Fornecedor de embalagens - R$ 890\n- 20/02/2024 - Conta de luz escritório - R$ 450\n- 28/02/2024 - Recebimento cliente XYZ - R$ 15.000",
+    "description": "Lançamentos avulsos com datas e sem empresa informada",
+    "assertions": [
+      "A tabela deve ter 4 linhas de dados",
+      "Google Ads deve ter CC REDUZIDO = MKT",
+      "Recebimento cliente XYZ deve ter VALOR positivo",
+      "Os outros 3 lançamentos devem ter VALOR negativo",
+      "EMPRESA deve ser inferida (Pessoal ou Matriz)",
+      "FONTE deve ser 'Input Manual'",
+      "DATA deve estar no formato YYYY-MM-DD"
+    ]
+  },
+  {
+    "id": "test_03_fcf_previsao",
+    "prompt": "tratar dados\n\nFluxo de Caixa Previsto - Q2 2024\nEmpresa: Tech Solutions Ltda | BU: SaaS\n\nAbr/24: Receita MRR R$ 80.000 | Infraestrutura TI R$ 12.000 | Folha R$ 35.000\nMai/24: Receita MRR R$ 85.000 | Infraestrutura TI R$ 12.000 | Folha R$ 35.000 | Campanha Marketing R$ 8.000\nJun/24: Receita MRR R$ 90.000 | Infraestrutura TI R$ 12.000 | Folha R$ 37.000",
+    "description": "FCF previsto trimestral com múltiplos meses, empresa e BU definidos",
+    "assertions": [
+      "STATUS deve ser 'Previsto' em todas as linhas",
+      "FONTE deve ser 'FCF'",
+      "B.U. deve ser 'SaaS'",
+      "EMPRESA deve ser 'Tech Solutions Ltda'",
+      "Infraestrutura TI deve ter CC REDUZIDO = TI",
+      "Folha deve ter CC REDUZIDO = RH",
+      "Receita MRR deve ter GRUPO = Receita e VALOR positivo",
+      "A tabela deve ter 10 linhas de dados (3+4+3)"
+    ]
+  },
+  {
+    "id": "test_04_entrada_minima",
+    "prompt": "tratar dados\n\nAluguel galpão R$ 5.000 março 2024",
+    "description": "Entrada mínima — apenas um lançamento com poucos dados",
+    "assertions": [
+      "A tabela deve conter exatamente 1 linha de dado",
+      "Todas as 17 colunas devem estar presentes",
+      "VALOR deve ser -5000.00 (despesa = negativo)",
+      "GRUPO deve ser 'Despesa'",
+      "MÊS DE EMISSÃO deve ser '2024-03'",
+      "O bloco de ALERTAS deve listar campos não informados",
+      "OBSERVAÇÃO deve registrar alguma inferência realizada"
+    ]
+  }
+]
