@@ -1,5 +1,8 @@
 # ✅ CHECKLIST FISCAL — Por Regime Tributário
 
+> **Atenção à vigência.** Os limites, alíquotas e percentuais abaixo **não foram reconferidos** na última revisão desta skill (06/10/2026) e a legislação muda. Antes de afirmar qualquer valor num achado, confira na fonte oficial ou nas leis da Estante (Lei 9.430/1996, Lei 12.973/2014, Decreto 9.580/2018) e, se não for possível, marque o achado como `VERIFICAR VIGÊNCIA`.
+> Durante a transição da reforma tributária (EC 132/2023 e LC 214/2025, ambas na Estante), verifique se há IBS ou CBS destacados e trate o tema como item a confirmar, sem presumir alíquota.
+
 ## Simples Nacional
 
 - [ ] Faturamento dentro do limite anual (R$ 4,8M)
