@@ -7,8 +7,11 @@ Custo Primário = Matéria-Prima + Mão de Obra Direta
 Custo de Transformação = Mão de Obra Direta + CIF
 Custo de Produção = MP + MOD + CIF
 Custo do Produto Acabado = Custo de Produção / Quantidade Produzida
-CPV (Custo dos Produtos Vendidos) = Custo Unitário × Quantidade Vendida
+CPV (Custo dos Produtos Vendidos) = Estoque Inicial + Custo de Produção do período - Estoque Final
+  (equivale a Custo Unitário × Quantidade Vendida quando o critério de estoque é aplicado de forma consistente)
 Custo Total do Período = CPV + Despesas Operacionais
+CIF fixo absorvido = CIF fixo / Capacidade Normal × Produção Real   (CPC 16, item 13)
+Custo da ociosidade (resultado do período) = CIF fixo - CIF fixo absorvido
 ```
 
 ## MARGEM DE CONTRIBUIÇÃO
@@ -94,6 +97,9 @@ Variância de Taxa de MOD = (Taxa Real - Taxa Padrão) × Horas Reais
 Variância de Eficiência de MOD = (Horas Reais - Horas Padrão) × Taxa Padrão
 
 Variância de Volume de CIF = (Cap. Normal - Cap. Real) × Taxa Padrão de CIF Fixo
+  (positiva = subabsorção, desfavorável)
+
+Conferência: Variância de Preço + Variância de Quantidade = Custo Real - Custo Padrão para a produção real
 ```
 
 ## RENTABILIDADE

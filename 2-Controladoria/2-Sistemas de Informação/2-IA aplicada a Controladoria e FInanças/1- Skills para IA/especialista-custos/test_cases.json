@@ -1,0 +1,92 @@
+{
+  "skill": "especialista-custos",
+  "version_note": "Casos sintéticos criados em 06/10/2026. Os números são fictícios e as respostas foram calculadas à mão.",
+  "how_to_use": "Envie o 'input' à skill sem dar a resposta. Um caso passa se todos os itens de 'deve' ocorrerem e nenhum de 'nao_deve' ocorrer.",
+  "cases": [
+    {
+      "id": "C01-ponto-de-equilibrio",
+      "input": "Produto com preço R$ 100, custo variável R$ 60 por unidade, despesa variável de 10% do preço e custos fixos de R$ 240.000 por mês.",
+      "deve": [
+        "MC unitária de R$ 30 e MC% de 30%",
+        "Ponto de equilíbrio contábil de 8.000 unidades e R$ 800.000",
+        "Mostrar a memória de cálculo"
+      ],
+      "nao_deve": ["Chamar o resultado de EBITDA do produto"]
+    },
+    {
+      "id": "C02-fator-limitante",
+      "input": "Capacidade de 10.000 horas-máquina. Produto A: MC R$ 40 por unidade e 2 hm por unidade; demanda 4.000 un. Produto B: MC R$ 30 por unidade e 1 hm por unidade; demanda 6.000 un.",
+      "deve": [
+        "Calcular a MC por hora-máquina: A R$ 20 e B R$ 30",
+        "Priorizar B (6.000 un) e produzir 2.000 un de A",
+        "MC total de R$ 260.000"
+      ],
+      "nao_deve": ["Priorizar A por ter maior MC unitária"]
+    },
+    {
+      "id": "C03-sensibilidade-do-rateio",
+      "input": "CIF de R$ 300.000. X: 10.000 un, 1.000 hm, preço R$ 50, custo direto R$ 30. Y: 1.000 un, 4.000 hm, preço R$ 400, custo direto R$ 200. Pergunta: qual produto dá prejuízo?",
+      "deve": [
+        "Calcular por volume: X perde R$ 7,27 por unidade e Y ganha R$ 172,73",
+        "Calcular por horas-máquina: X ganha R$ 14,00 e Y perde R$ 40,00",
+        "Sinalizar que o ranking inverte conforme o critério e que há risco de subsídio cruzado",
+        "Recomendar ABC ou TDABC, ou decisão pela MC e custos relevantes"
+      ],
+      "nao_deve": ["Concluir qual produto é deficitário usando só um critério de rateio"]
+    },
+    {
+      "id": "C04-ociosidade-cpc16",
+      "input": "Capacidade normal de 10.000 un por mês, produção real de 6.000 un e CIF fixo de R$ 200.000.",
+      "deve": [
+        "CIF fixo unitário de R$ 20, com base na capacidade normal",
+        "CIF fixo absorvido de R$ 120.000",
+        "R$ 80.000 de ociosidade reconhecidos no resultado do período, não no estoque",
+        "Citar o CPC 16, item 13"
+      ],
+      "nao_deve": ["Usar R$ 33,33 por unidade (200.000 / 6.000) no custo do estoque"]
+    },
+    {
+      "id": "C05-descontinuar-produto",
+      "input": "Produto Z: MC de R$ 15.000 por mês, custos fixos identificados de R$ 10.000 e custos comuns rateados de R$ 12.000. A diretoria quer descontinuar porque o resultado após rateio é negativo.",
+      "deve": [
+        "Mostrar o resultado após rateio de −R$ 7.000",
+        "Mostrar o resultado relevante de +R$ 5.000 (MC menos fixos identificados)",
+        "Explicar que descontinuar reduz o resultado total em R$ 5.000, pois os custos comuns permanecem",
+        "Listar o que mudaria a conclusão (capacidade liberada para produto de maior MC, efeitos estratégicos)"
+      ],
+      "nao_deve": ["Recomendar descontinuar com base apenas no resultado após rateio"]
+    },
+    {
+      "id": "C06-variacoes-custo-padrao",
+      "input": "Padrão: 2 kg de matéria-prima por unidade a R$ 5,00 por kg. Produção de 10.000 un. Real: 21.000 kg consumidos a R$ 5,20 por kg.",
+      "deve": [
+        "Variação de preço de R$ 4.200 desfavorável",
+        "Variação de quantidade de R$ 5.000 desfavorável",
+        "Variação total de R$ 9.200 desfavorável, conferindo com custo real (R$ 109.200) menos padrão (R$ 100.000)",
+        "Separar o que é controlável (quantidade) do que depende do mercado (preço)"
+      ],
+      "nao_deve": ["Somar as variações sem conferir com o custo real"]
+    },
+    {
+      "id": "C07-dados-incompletos",
+      "input": "Preciso do preço de venda do produto Q. O custo é R$ 70 e quero 20% de margem.",
+      "deve": [
+        "Perguntar quais tributos sobre a venda e quais despesas variáveis incidem e se R$ 70 é custo variável ou pleno",
+        "Se calcular algo, apresentar como resultado condicional com premissas rotuladas",
+        "Mostrar a fórmula do mark-up divisor",
+        "Fazer no máximo 3 perguntas"
+      ],
+      "nao_deve": ["Afirmar o preço final como definitivo sem os tributos e despesas variáveis"]
+    },
+    {
+      "id": "C08-validacao-reconciliacao",
+      "input": "Rateio de CIF de R$ 500.000 em três produtos: A recebe R$ 200.000, B recebe R$ 180.000 e C recebe R$ 150.000.",
+      "deve": [
+        "Notar que a soma alocada é R$ 530.000, R$ 30.000 acima do total a ratear",
+        "Pedir a correção antes de apresentar rentabilidade",
+        "Tratar qualquer resultado como preliminar enquanto a reconciliação não fechar"
+      ],
+      "nao_deve": ["Calcular a margem por produto sem avisar da diferença"]
+    }
+  ]
+}
