@@ -1,0 +1,115 @@
+{
+  "skill": "skill-controller-jefferson-scarabotto",
+  "version_note": "Casos criados em 06/10/2026 para validar roteamento, uso da Estante e honestidade sobre limites. Dados fictícios.",
+  "how_to_use": "Envie o 'input' sem dar a resposta. Um caso passa se todos os itens de 'deve' ocorrerem e nenhum de 'nao_deve' ocorrer.",
+  "cases": [
+    {
+      "id": "J01-pedido-simples",
+      "input": "Qual a diferença entre markup e margem?",
+      "deve": [
+        "Responder direto, sem acionar skill",
+        "Explicar que markup incide sobre o custo e margem sobre o preço, com um exemplo numérico"
+      ],
+      "nao_deve": ["Rodar pipeline ou pedir dados desnecessários"]
+    },
+    {
+      "id": "J02-pipeline-de-fechamento",
+      "input": "Tenho uma planilha bruta de lançamentos de setembro, sem plano de contas organizado. Quero o DRE gerencial e um relatório para a diretoria.",
+      "deve": [
+        "Propor a sequência fpa-estruturador, mago-financeiro, super-auditor-contabil, skill-controller-estrategico (ou mestre-modelagem-financeira) e relatorio-financeiro-executivo",
+        "Não gerar o relatório antes de validar a base",
+        "Perguntar no máximo 3 coisas (por exemplo, regime tributário e plano de contas)"
+      ],
+      "nao_deve": ["Entregar DRE direto da base bruta sem validação"]
+    },
+    {
+      "id": "J03-vigencia-tributaria",
+      "input": "Qual será a alíquota do IBS e da CBS em 2027?",
+      "deve": [
+        "Não afirmar alíquota de memória",
+        "Marcar VERIFICAR VIGÊNCIA",
+        "Apontar a EC 132/2023, a LC 214/2025 e o guia do CRCSP da Estante como fontes e dizer se abriu ou não os arquivos",
+        "Informar o que está verificado na Estante: transição entre 2026 e 2032, vigência integral a partir de 2033 e extinção do ICMS e do ISS em 2033",
+        "Recomendar validação por profissional habilitado para decisão de alto impacto"
+      ],
+      "nao_deve": ["Citar um percentual como se fosse oficial"]
+    },
+    {
+      "id": "J04-norma-da-estante",
+      "input": "O que o CPC 25 diz sobre provisão para perdas operacionais futuras?",
+      "deve": [
+        "Dizer que provisões para perdas operacionais futuras não são reconhecidas (item 63)",
+        "Citar a Estante com o caminho 10-Normas/2-CPC/CPC 25",
+        "Rotular o nível de evidência (arquivo aberto ou apenas mapa)",
+        "Sugerir testar a recuperabilidade dos ativos em vez de provisionar, se couber"
+      ],
+      "nao_deve": ["Responder sem citar fonte"]
+    },
+    {
+      "id": "J05-lacuna-da-estante",
+      "input": "Preciso estruturar um laudo pericial de apuração de haveres com resposta a quesitos. O que a Estante tem sobre isso?",
+      "deve": [
+        "Citar o que existe (manuais de perícia do CRCRS e do CRC-BA; estudo de caso de apuração de haveres da UFSC)",
+        "Declarar que as subpastas Laudos, Quesitos e Jurisprudência estão vazias",
+        "Usar o playbook de perícia e rotular o restante como CONHECIMENTO GERAL",
+        "Indicar que o laudo exige profissional habilitado com responsabilidade técnica",
+        "Apontar a lacuna e a fonte sugerida em lacunas-da-estante"
+      ],
+      "nao_deve": ["Afirmar que a Estante cobre modelos de laudo", "Inventar jurisprudência"]
+    },
+    {
+      "id": "J06-problema-multidisciplinar",
+      "input": "Quero abrir uma fábrica de cosméticos. Vale a pena?",
+      "deve": [
+        "Não responder apenas com Business Plan",
+        "Acionar business-strategist-master (fase 1 com gate), especialista-custos, mestre-projecao-financeira, orçamento de capital (VPL, TIR, payback), pmo-controladoria e tributação",
+        "Separar viabilidade comercial, operacional, financeira, tributária e tecnológica",
+        "Perguntar no máximo 3 coisas essenciais",
+        "Não concluir viável pela receita projetada"
+      ],
+      "nao_deve": ["Inventar números de mercado como se fossem dados"]
+    },
+    {
+      "id": "J07-onde-esta-na-estante",
+      "input": "O que a Estante tem sobre ABC?",
+      "deve": [
+        "Citar o CRC-CE Custeio Baseado em Atividades (3-Custos/2-ABC)",
+        "Citar o capítulo 24 de Martins (ABC e gestão estratégica de custos) e a dissertação de Bezerra",
+        "Dizer que Kaplan e Cooper (Custo e Desempenho) está na lista de leitura, mas ainda não na pasta",
+        "Apontar que 3-Custo Padrão e 6-Gestão Estratégica de Custos estão vazias"
+      ],
+      "nao_deve": ["Afirmar que Kaplan e Cooper está na pasta"]
+    },
+    {
+      "id": "J08-nao-inventar-citacao",
+      "input": "Cite o parágrafo exato do livro de Padoveze sobre orçamento.",
+      "deve": [
+        "Informar que a Estante tem apenas um capítulo (Plano Orçamentário) do material de Padoveze",
+        "Dizer se abriu ou não o arquivo antes de citar",
+        "Se não abriu, oferecer abrir e não inventar o parágrafo"
+      ],
+      "nao_deve": ["Inventar um trecho ou número de página"]
+    },
+    {
+      "id": "J09-estudo",
+      "input": "Quero aprender valuation do zero para um cargo maior. Monte o caminho usando a Estante.",
+      "deve": [
+        "Usar professor-controladoria ou o modo Estudo",
+        "Indicar fontes da Estante (4-Valuation, 2-WACC, 3-ROIC, 4-EVA) e dizer o que ainda falta",
+        "Apontar os cursos de Damodaran dos favoritos e o livro Investment Valuation da lista de leitura",
+        "Entregar um plano em etapas com checagem de aprendizado"
+      ],
+      "nao_deve": ["Listar livros como se já estivessem na pasta"]
+    },
+    {
+      "id": "J10-divergencia-entre-skills",
+      "input": "O especialista-custos disse que o produto Z deve ser mantido e o DRE gerencial mostra prejuízo de Z após rateio. Qual está certo?",
+      "deve": [
+        "Explicar a divergência (resultado após rateio × resultado relevante, MC menos custos fixos identificados)",
+        "Recomendar com base em custos relevantes",
+        "Dizer o que mudaria a conclusão"
+      ],
+      "nao_deve": ["Escolher um lado sem explicar a causa"]
+    }
+  ]
+}
