@@ -67,15 +67,13 @@ PROBLEMA → OBJETIVO → CONTEXTO → RESTRIÇÕES → DECOMPOSIÇÃO → SKILL
 | Base financeira bruta a padronizar (colunas, GRUPO, centro de custo) | `fpa-estruturador` | arquivo ou dados, matriz de centros de custo | tabela padronizada, interpretação, alertas |
 | Classificar lançamentos, conciliar, montar plano de contas | `mago-financeiro` | base e plano de contas | planilha classificada, incertos sinalizados |
 | Auditar base, DRE ou balancete; achar duplicidade, erro de classificação, não conformidade | `super-auditor-contabil` | base, período, regime, materialidade | relatório de não conformidades com score e gates |
-| Fechamento: DRE gerencial, DFC direto, balanço gerencial, orçado × realizado, prévia executiva | `skill-controller-estrategico` | base do período, regime, orçamento | pacote de fechamento e Excel |
-| Modelo integrado (DRE + DFC + BP), sensibilidade, valuation simplificado | `mestre-modelagem-financeira` | base tratada ou bruta, premissas | modelo integrado e notas |
+| Fechamento e modelo gerencial: DRE, DFC, balanço, indicadores, orçado × realizado × forecast, desvios e drivers, prévia executiva, sensibilidade, valuation simplificado | `mestre-modelagem-financeira` | base tratada ou bruta, regime, orçamento, premissas | modelo integrado, prévia executiva, notas e Excel |
 | Projeção, cenários, orçamento por drivers, enquadramento tributário | `mestre-projecao-financeira` | histórico, premissas | 3 cenários e planilha |
 | Custos, rateio, margem, ponto de equilíbrio, pricing a partir do custo | `especialista-custos` | produtos, volumes, custos, preços | rentabilidade, decisão, memorando |
 | Folha, encargos, provisões, custo de mão de obra, rescisão, budget de pessoal | `especialista-fopag` | folha ou cargos, regime | CTMO, provisões, budget de pessoal |
 | Faturamento, receita por canal, recebíveis, aging, conciliação de NFs | `especialista-faturamento` | notas, extratos, recebíveis | conciliações e análises |
 | Relatório ou dashboard executivo (HTML, PPTX, XLSX, DOCX, PDF) | `relatorio-financeiro-executivo` | dados validados, público | relatório visual |
-| ETL, SQL, Python, base suja, banco de dados, dashboards de dados | `engenheiro-dados-financeiros` | fontes e objetivo | pipeline e base tratada |
-| API pública para puxar dado externo | `especialista-apis-publicas` | dado desejado | opções e integração |
+| ETL, SQL, Python, base suja, banco de dados, dashboards de dados, **APIs públicas e dado externo** (câmbio, CEP, CNPJ, Banco Central) | `engenheiro-dados-financeiros` | fontes e objetivo | pipeline, base tratada e integração |
 | Aplicação, código, Supabase, React | `dev-specialist` | requisito e sistema atual | código e relatório de mudança |
 | Diagnóstico de CFO, decisão estratégica com números | `agente-financeiro` | dados e pergunta de decisão | visão executiva, riscos, plano |
 | Ideia de negócio até Business Plan | `business-strategist-master` | ideia, mercado | Fase 1 com gate, depois Business Plan |
@@ -90,7 +88,7 @@ Skills genéricas do ambiente (por exemplo, DCF, análise de variação, concili
 
 | Objetivo | Sequência |
 |---|---|
-| Fechamento a partir de dados brutos | `fpa-estruturador` → `mago-financeiro` → `super-auditor-contabil` → `skill-controller-estrategico` (ou `mestre-modelagem-financeira`) → `relatorio-financeiro-executivo` |
+| Fechamento a partir de dados brutos | `fpa-estruturador` → `mago-financeiro` → `super-auditor-contabil` → `mestre-modelagem-financeira` → `relatorio-financeiro-executivo` |
 | Rentabilidade e preço | `especialista-custos` (com `especialista-fopag` para mão de obra) → preço no `diretor-comercial-marketing` → decisão no `agente-financeiro` |
 | Planejamento e orçamento | `mestre-projecao-financeira` → `mestre-modelagem-financeira` → relatório; tributos pelo playbook 9 |
 | Nova unidade, fábrica ou produto | `business-strategist-master` → `especialista-custos` → `mestre-projecao-financeira` → orçamento de capital (playbook 4) → `pmo-controladoria` |

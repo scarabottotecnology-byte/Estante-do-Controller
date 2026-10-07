@@ -2,6 +2,8 @@
 
 Data: 06/10/2026. Etapa 1 do agente Controller Skill Architect: **diagnóstico, sem modificar nenhuma skill**.
 
+> **Atualização de 06/10/2026:** depois deste diagnóstico, `skill-controller-estrategico` (Crimson) e `especialista-apis-publicas` foram **apagadas** da pasta por competirem com outras skills. O conteúdo único da Crimson foi migrado para `mestre-modelagem-financeira` (diagnóstico da base, comparativos orçado × realizado × forecast, desvios e drivers, prévia executiva, qualidade do fechamento, regra N/D). O das APIs públicas foi para `engenheiro-dados-financeiros/references/apis-publicas.md`. Restam 17 skills. As tabelas abaixo refletem a situação **antes** da consolidação.
+
 ## Como esta análise foi feita (e seus limites)
 
 - Li o frontmatter, a estrutura de títulos, o tamanho de cada seção e os arquivos de referência das 19 skills da pasta `2-Controladoria/.../1- Skills para IA`.

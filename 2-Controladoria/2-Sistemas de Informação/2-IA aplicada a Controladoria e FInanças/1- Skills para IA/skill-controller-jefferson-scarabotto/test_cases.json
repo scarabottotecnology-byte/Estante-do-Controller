@@ -10,17 +10,21 @@
         "Responder direto, sem acionar skill",
         "Explicar que markup incide sobre o custo e margem sobre o preço, com um exemplo numérico"
       ],
-      "nao_deve": ["Rodar pipeline ou pedir dados desnecessários"]
+      "nao_deve": [
+        "Rodar pipeline ou pedir dados desnecessários"
+      ]
     },
     {
       "id": "J02-pipeline-de-fechamento",
       "input": "Tenho uma planilha bruta de lançamentos de setembro, sem plano de contas organizado. Quero o DRE gerencial e um relatório para a diretoria.",
       "deve": [
-        "Propor a sequência fpa-estruturador, mago-financeiro, super-auditor-contabil, skill-controller-estrategico (ou mestre-modelagem-financeira) e relatorio-financeiro-executivo",
+        "Propor a sequência fpa-estruturador, mago-financeiro, super-auditor-contabil, mestre-modelagem-financeira e relatorio-financeiro-executivo",
         "Não gerar o relatório antes de validar a base",
         "Perguntar no máximo 3 coisas (por exemplo, regime tributário e plano de contas)"
       ],
-      "nao_deve": ["Entregar DRE direto da base bruta sem validação"]
+      "nao_deve": [
+        "Entregar DRE direto da base bruta sem validação"
+      ]
     },
     {
       "id": "J03-vigencia-tributaria",
@@ -32,7 +36,9 @@
         "Informar o que está verificado na Estante: transição entre 2026 e 2032, vigência integral a partir de 2033 e extinção do ICMS e do ISS em 2033",
         "Recomendar validação por profissional habilitado para decisão de alto impacto"
       ],
-      "nao_deve": ["Citar um percentual como se fosse oficial"]
+      "nao_deve": [
+        "Citar um percentual como se fosse oficial"
+      ]
     },
     {
       "id": "J04-norma-da-estante",
@@ -43,7 +49,9 @@
         "Rotular o nível de evidência (arquivo aberto ou apenas mapa)",
         "Sugerir testar a recuperabilidade dos ativos em vez de provisionar, se couber"
       ],
-      "nao_deve": ["Responder sem citar fonte"]
+      "nao_deve": [
+        "Responder sem citar fonte"
+      ]
     },
     {
       "id": "J05-lacuna-da-estante",
@@ -55,7 +63,10 @@
         "Indicar que o laudo exige profissional habilitado com responsabilidade técnica",
         "Apontar a lacuna e a fonte sugerida em lacunas-da-estante"
       ],
-      "nao_deve": ["Afirmar que a Estante cobre modelos de laudo", "Inventar jurisprudência"]
+      "nao_deve": [
+        "Afirmar que a Estante cobre modelos de laudo",
+        "Inventar jurisprudência"
+      ]
     },
     {
       "id": "J06-problema-multidisciplinar",
@@ -67,7 +78,9 @@
         "Perguntar no máximo 3 coisas essenciais",
         "Não concluir viável pela receita projetada"
       ],
-      "nao_deve": ["Inventar números de mercado como se fossem dados"]
+      "nao_deve": [
+        "Inventar números de mercado como se fossem dados"
+      ]
     },
     {
       "id": "J07-onde-esta-na-estante",
@@ -78,7 +91,9 @@
         "Dizer que Kaplan e Cooper (Custo e Desempenho) está na lista de leitura, mas ainda não na pasta",
         "Apontar que 3-Custo Padrão e 6-Gestão Estratégica de Custos estão vazias"
       ],
-      "nao_deve": ["Afirmar que Kaplan e Cooper está na pasta"]
+      "nao_deve": [
+        "Afirmar que Kaplan e Cooper está na pasta"
+      ]
     },
     {
       "id": "J08-nao-inventar-citacao",
@@ -88,7 +103,9 @@
         "Dizer se abriu ou não o arquivo antes de citar",
         "Se não abriu, oferecer abrir e não inventar o parágrafo"
       ],
-      "nao_deve": ["Inventar um trecho ou número de página"]
+      "nao_deve": [
+        "Inventar um trecho ou número de página"
+      ]
     },
     {
       "id": "J09-estudo",
@@ -99,7 +116,9 @@
         "Apontar os cursos de Damodaran dos favoritos e o livro Investment Valuation da lista de leitura",
         "Entregar um plano em etapas com checagem de aprendizado"
       ],
-      "nao_deve": ["Listar livros como se já estivessem na pasta"]
+      "nao_deve": [
+        "Listar livros como se já estivessem na pasta"
+      ]
     },
     {
       "id": "J10-divergencia-entre-skills",
@@ -109,7 +128,9 @@
         "Recomendar com base em custos relevantes",
         "Dizer o que mudaria a conclusão"
       ],
-      "nao_deve": ["Escolher um lado sem explicar a causa"]
+      "nao_deve": [
+        "Escolher um lado sem explicar a causa"
+      ]
     }
   ]
 }

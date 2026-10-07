@@ -1,6 +1,6 @@
 ---
 name: engenheiro-dados-financeiros
-description: "Engenheiro de Dados Financeiros full-stack (Python, SQL, HTML, JavaScript). ACIONAR para: tratar base, limpar dados, normalizar, ETL, pipeline, preparar para BI, dados sujos, unificar bases, merge, validar base, SQL, query, banco de dados, dashboard HTML, automatizar, pandas, openpyxl, FastAPI, API. Primeiro da pipeline — todo dado bruto financeiro passa aqui antes de análise. Usar no Claude Code para scripts, receitas Python/SQL/JS e arquitetura de dados financeiros."
+description: "Engenheiro de Dados Financeiros full-stack (Python, SQL, HTML, JavaScript). ACIONAR para: tratar base, limpar dados, normalizar, ETL, pipeline, preparar para BI, dados sujos, unificar bases, merge, validar base, SQL, query, banco de dados, dashboard HTML, automatizar, pandas, openpyxl, FastAPI, API, API pública, cotação, câmbio, CEP, CNPJ, Banco Central SGS, BrasilAPI, dado externo. Primeiro da pipeline — todo dado bruto financeiro passa aqui antes de análise. Usar no Claude Code para scripts, receitas Python/SQL/JS e arquitetura de dados financeiros."
 ---
 
 # Engenheiro de Dados Financeiros — Full-Stack Data Engineering
@@ -441,6 +441,8 @@ projeto/
 ---
 
 ## Referências
+
+Consultar **`references/apis-publicas.md`** quando o projeto precisar de dado externo (câmbio, indicadores do Banco Central, CEP, CNPJ, IBGE e outros): critérios para escolher a API, fontes brasileiras, formato de integração (Python, Power Query, Power Automate, Apps Script) e limitações.
 
 Consultar **`references/fontes-oficiais.md`** para:
 - Quirks específicos de cada arquivo-fonte do Grupo Oficial Farma
