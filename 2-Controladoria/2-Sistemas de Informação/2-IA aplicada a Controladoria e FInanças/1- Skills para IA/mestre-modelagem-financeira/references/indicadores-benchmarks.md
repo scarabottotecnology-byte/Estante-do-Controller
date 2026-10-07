@@ -1,11 +1,11 @@
-# Benchmarks Setoriais — Indicadores Financeiros
+# Referências heurísticas de indicadores (semáforo)
 
-Referência para semáforo automático de indicadores no Mestre da Modelagem Financeira.
-Fonte: médias de mercado Brasil — adaptar conforme contexto específico da empresa.
+> **AVISO — leia antes de usar.** As faixas abaixo **não têm fonte de mercado verificada**. São referências heurísticas de trabalho, úteis como gatilho de investigação no semáforo. **Não as apresente como "média do setor" nem como dado de mercado.** Se o usuário fornecer metas ou benchmarks com fonte, use-os no lugar e cite a fonte. Calibre sempre pelo setor, pelo porte e pelo histórico da própria empresa.
+> Os nomes de segmento servem só para escolher uma tabela de referência; confirme com o usuário se o segmento se aplica.
 
 ---
 
-## BEBIDAS & ALIMENTOS (segmento ITTS SERO / produtos de consumo)
+## BEBIDAS & ALIMENTOS (produtos de consumo)
 
 | Indicador | 🔴 Crítico | 🟡 Atenção | 🟢 Saudável |
 |---|---|---|---|
@@ -18,7 +18,6 @@ Fonte: médias de mercado Brasil — adaptar conforme contexto específico da em
 | PMR (dias) | > 60 | 30–60 | < 30 |
 | PMP (dias) | < 30 | 30–45 | > 45 |
 | Giro de Estoques | < 6x/ano | 6–12x/ano | > 12x/ano |
-| Múltiplo EV/EBITDA | — | — | 6–10x |
 
 ---
 
@@ -35,7 +34,6 @@ Fonte: médias de mercado Brasil — adaptar conforme contexto específico da em
 | PMR (dias) | > 45 | 20–45 | < 20 |
 | PMP (dias) | < 20 | 20–40 | > 40 |
 | Giro de Estoques | < 8x/ano | 8–15x/ano | > 15x/ano |
-| Múltiplo EV/EBITDA | — | — | 8–12x |
 
 ---
 
@@ -50,7 +48,6 @@ Fonte: médias de mercado Brasil — adaptar conforme contexto específico da em
 | Dívida Líq./EBITDA | > 3,0x | 2,0–3,0x | < 2,0x |
 | PMR (dias) | > 45 | 25–45 | < 25 |
 | PMP (dias) | < 25 | 25–45 | > 45 |
-| Múltiplo EV/EBITDA | — | — | 5–8x |
 
 ---
 
@@ -63,7 +60,6 @@ Fonte: médias de mercado Brasil — adaptar conforme contexto específico da em
 | Margem Líquida | < 2% | 2–6% | > 6% |
 | Liquidez Corrente | < 1,0 | 1,0–1,5 | > 1,5 |
 | Giro de Estoques | < 5x/ano | 5–10x/ano | > 10x/ano |
-| Múltiplo EV/EBITDA | — | — | 6–9x |
 
 ---
 
@@ -81,26 +77,11 @@ Fonte: médias de mercado Brasil — adaptar conforme contexto específico da em
 
 ---
 
-## WACC / TMA DE REFERÊNCIA (Brasil 2025–2026)
+## TAXA DE DESCONTO, CRESCIMENTO PERPÉTUO E MÚLTIPLOS
 
-| Perfil de Risco | WACC Estimado |
-|---|---|
-| Empresa consolidada, baixo risco | 12–16% a.a. |
-| Empresa em crescimento, risco médio | 18–25% a.a. |
-| Startup / novo negócio, alto risco | 25–40% a.a. |
-| TMA Grupo Oficial Farma (padrão) | 25% a.a. |
+Esta versão **removeu** as tabelas anteriores de WACC "de referência", de TMA de um cliente específico, de crescimento perpétuo "padrão" e de múltiplos de aquisição por segmento, porque não tinham fonte verificável e podiam ser lidas como dado de mercado.
 
-Taxa de crescimento perpétuo (g) para DCF: 3–5% a.a. (inflação + crescimento real conservador)
-
----
-
-## MÚLTIPLOS DE AQUISIÇÃO — REFERÊNCIA M&A BRASIL
-
-| Segmento | EV/EBITDA | EV/Receita | P/L |
-|---|---|---|---|
-| Bebidas & Alimentos | 6–10x | 0,5–1,5x | 12–20x |
-| Farmácias Varejo | 8–14x | 0,3–0,8x | 15–25x |
-| Distribuição | 5–8x | 0,2–0,5x | 10–16x |
-| SaaS/Tech | 15–30x | 3–8x | 25–50x |
-
-*Múltiplos variam por porte, crescimento, qualidade de gestão e momento de mercado.*
+Como proceder:
+- **Taxa de desconto:** calcule o WACC com insumos rastreáveis (veja `valuation-e-custo-de-capital.md`) ou use a taxa informada pelo usuário (TMA), rotulando qual foi usada.
+- **Crescimento perpétuo (g):** escolha com critério (menor que a taxa de desconto e coerente com o crescimento da economia na moeda do fluxo) e mostre a sensibilidade.
+- **Múltiplos:** use comparáveis fornecidos ou verificáveis (empresa, data, definição de EBITDA e de EV). Sem comparáveis, peça-os.

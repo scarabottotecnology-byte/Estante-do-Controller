@@ -1,0 +1,101 @@
+{
+  "skill": "mestre-modelagem-financeira",
+  "version_note": "Casos sintéticos criados em 06/10/2026. Números fictícios; respostas calculadas à mão e conferidas em Python.",
+  "how_to_use": "Envie o 'input' sem dar a resposta. Um caso passa se todos os itens de 'deve' ocorrerem e nenhum de 'nao_deve' ocorrer.",
+  "cases": [
+    {
+      "id": "M01-estrutura-da-dre",
+      "input": "Receita líquida 1.000; CMV 600; despesas operacionais (comerciais, pessoal e administrativas, sem D&A) 250; depreciação e amortização 30; resultado financeiro −20; alíquota de IR e CSLL 34%. Monte a DRE gerencial.",
+      "deve": [
+        "EBITDA de 150 (15%)",
+        "EBIT de 120",
+        "Resultado financeiro depois do EBIT, LAIR de 100",
+        "IR e CSLL de 34 sobre o LAIR e lucro líquido de 66"
+      ],
+      "nao_deve": ["Colocar despesas financeiras acima do EBITDA", "Calcular o imposto sobre o EBIT"]
+    },
+    {
+      "id": "M02-balanco-nao-fecha",
+      "input": "Ativo total 1.000 e passivo mais patrimônio líquido 970 no balanço da data-base.",
+      "deve": [
+        "Tratar a diferença de 30 como achado",
+        "Não forçar o fechamento com plug ou ajuste em outros",
+        "Listar causas a investigar (contrapartida faltante, PL sem o resultado, D&A não refletida, capital de giro faltando no DFC)",
+        "Devolver ao auditor antes do relatório"
+      ],
+      "nao_deve": ["Lançar uma conta de ajuste de 30 para fechar"]
+    },
+    {
+      "id": "M03-caixa-dfc-x-bp",
+      "input": "Saldo inicial de caixa 100; FCO 80; FCI −50; FCF −10. O balanço mostra disponibilidades de 118.",
+      "deve": [
+        "Variação líquida de 20 e saldo final de 120 pelo DFC",
+        "Apontar a diferença de 2 contra o BP e não avançar até explicá-la",
+        "Citar a verificação cruzada DFC × BP"
+      ],
+      "nao_deve": ["Ajustar o caixa do BP pela diferença"]
+    },
+    {
+      "id": "M04-dcf-simplificado",
+      "input": "Faça um DCF simplificado: FCFF de 100, 110 e 120 nos anos 1 a 3; taxa de desconto de 12%; crescimento perpétuo de 3%; dívida líquida de 300.",
+      "deve": [
+        "VP dos fluxos de cerca de 262,4",
+        "Valor terminal de cerca de 1.373,3 no ano 3 e valor presente de cerca de 977,5",
+        "EV de cerca de 1.239,9 e equity de cerca de 939,9",
+        "Informar que o valor terminal representa cerca de 78,8% do EV",
+        "Apresentar em faixa com sensibilidade de k e g (por exemplo, k 12% e g de 2% a 4%: cerca de 1.133,6 a 1.372,8)"
+      ],
+      "nao_deve": ["Apresentar o equity como valor único e definitivo", "Esquecer de descontar o valor terminal"]
+    },
+    {
+      "id": "M05-multiplo-sem-fonte",
+      "input": "Qual o múltiplo EV/EBITDA do setor farmacêutico? Quero avaliar a minha empresa por múltiplos.",
+      "deve": [
+        "Dizer que não usa múltiplo de memória",
+        "Pedir comparáveis com fonte (empresa, data, definição de EBITDA e de EV)",
+        "Explicar o método e deixar o múltiplo como entrada do usuário"
+      ],
+      "nao_deve": ["Citar uma faixa de múltiplo como se fosse do setor"]
+    },
+    {
+      "id": "M06-tma-nao-e-wacc",
+      "input": "Use 25% ao ano como WACC no meu DCF.",
+      "deve": [
+        "Tratar os 25% como taxa informada pelo usuário (TMA ou taxa de desconto) e rotular assim",
+        "Observar que isso não é um WACC calculado e, se útil, oferecer o cálculo do WACC",
+        "Mostrar a sensibilidade em torno da taxa"
+      ],
+      "nao_deve": ["Chamar de WACC calculado", "Dizer que existe um WACC padrão"]
+    },
+    {
+      "id": "M07-consolidado-com-intragrupo",
+      "input": "Consolidado de duas empresas do grupo: A tem receita de 3.000, dos quais 500 são vendas para B; B tem receita de 2.000, todas com terceiros. Qual a receita consolidada?",
+      "deve": [
+        "Eliminar as vendas intragrupo e os custos correspondentes",
+        "Receita consolidada de 4.500 (3.000 + 2.000 − 500)",
+        "Pedir a eliminação dos saldos a receber e a pagar entre as empresas e do lucro nos estoques, se houver",
+        "Citar o CPC 36"
+      ],
+      "nao_deve": ["Somar 5.000 como receita consolidada"]
+    },
+    {
+      "id": "M08-gate-do-auditor",
+      "input": "O auditor devolveu o parecer BLOQUEADA para a base. O diretor quer o relatório de qualquer forma, hoje.",
+      "deve": [
+        "Não avançar para a modelagem e o relatório como definitivos",
+        "Voltar à etapa de classificação com a lista de itens a corrigir",
+        "Se o usuário insistir, oferecer entrega preliminar claramente rotulada, com as ressalvas, e registrar a ressalva"
+      ],
+      "nao_deve": ["Entregar o relatório como aprovado"]
+    },
+    {
+      "id": "M09-notas-gerenciais",
+      "input": "Gere as notas explicativas do modelo e diga que podem ser usadas na publicação das demonstrações.",
+      "deve": [
+        "Informar que são notas gerenciais e não substituem as notas obrigatórias (CPC 26 e Lei 6.404)",
+        "Gerar as notas incluindo premissas, validações e limites"
+      ],
+      "nao_deve": ["Afirmar que as notas atendem à publicação"]
+    }
+  ]
+}
