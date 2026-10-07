@@ -11,20 +11,20 @@ Data: 06/10/2026. Compara o que a Estante tem (veja `mapa-da-estante.md`) com o 
 
 | Subpasta | Por que importa | Sugestão de fonte (verificar) | Prioridade | Skill afetada |
 |---|---|---|---|---|
-| 7-Auditoria / 4-Riscos | Base de gestão de riscos e COSO; ligada ao plano de estudos | Manual de riscos do TCU; COSO ERM (resumo público); curso Enap de riscos (nos favoritos) | Alta | super-auditor, jefferson |
-| 7-Auditoria / 5-Evidências | Evidência é o centro de qualquer teste de auditoria | NBC TA 500 (evidência de auditoria) e série NBC TA do CFC | Alta | super-auditor |
+| 7-Auditoria / 4-Riscos | Base de gestão de riscos e COSO; ligada ao plano de estudos | Manual de riscos do TCU; COSO ERM (resumo público); curso Enap de riscos (nos favoritos) | Alta | especialista-auditoria, jefferson |
+| 7-Auditoria / 5-Evidências | Evidência é o centro de qualquer teste de auditoria | NBC TA 500 (evidência de auditoria) e série NBC TA do CFC | Alta | especialista-auditoria |
 | 3-Custos / 3-Custo Padrão | Variações de preço, quantidade e volume | Kaplan e Cooper (*Custo e Desempenho*, na lista de leitura); capítulos de custo-padrão de manuais de custos | Alta | especialista-custos |
 | 3-Custos / 4-Custeio Variável | Decisão de curto prazo | Capítulos de custeio variável em manuais (Martins já cobre parte) | Média | especialista-custos |
 | 3-Custos / 6-Gestão Estratégica de Custos | Visão estratégica e custeio-alvo | Shank e Govindarajan, *Gestão Estratégica de Custos* | Média | especialista-custos |
-| 5-FP&A / 4-Cenários | Análise de cenários e sensibilidade | Artigos de planejamento por cenários; planilhas abertas de valuation | Média | mestre-projecao |
-| 5-FP&A / 5-Financial Modeling | Modelagem integrada | Material aberto de modelagem (por exemplo, planilhas abertas de Damodaran); Benninga (comercial) | Alta | mestre-modelagem |
-| 6-Performance / 5-Performance Management | Sistema de gestão de desempenho | Kaplan e Norton (*A Estratégia em Ação*, na lista de leitura); Simons | Média | agente-financeiro |
-| 8-Perícias / 2-Laudos | Modelos e estrutura de laudo | NBC TP 01 (Perícia Contábil) e NBC PP 01 (Perito Contábil), CFC; laudos-modelo de CRCs | Média | super-auditor |
+| 5-FP&A / 4-Cenários | Análise de cenários e sensibilidade | Artigos de planejamento por cenários; planilhas abertas de valuation | Média | especialista-projecao-tributos |
+| 5-FP&A / 5-Financial Modeling | Modelagem integrada | Material aberto de modelagem (por exemplo, planilhas abertas de Damodaran); Benninga (comercial) | Alta | especialista-modelagem |
+| 6-Performance / 5-Performance Management | Sistema de gestão de desempenho | Kaplan e Norton (*A Estratégia em Ação*, na lista de leitura); Simons | Média | especialista-cfo |
+| 8-Perícias / 2-Laudos | Modelos e estrutura de laudo | NBC TP 01 (Perícia Contábil) e NBC PP 01 (Perito Contábil), CFC; laudos-modelo de CRCs | Média | especialista-auditoria |
 | 8-Perícias / 4-Valuation Judicial | Avaliação em juízo | Trabalhos acadêmicos sobre apuração de haveres e valuation judicial | Média | jefferson |
 | 8-Perícias / 5-Quesitos | Quesitos típicos | Manuais de perícia (os da Estante trazem partes) | Baixa | jefferson |
 | 8-Perícias / 6-Jurisprudência e 9-Tributário / 4-Jurisprudência | Precedentes | Bases públicas do CARF, STJ e STF (links em vez de PDFs) | Média | jefferson |
 | 10-Normas / 3-IFRS | IFRS na fonte | Normas IFRS em acesso gratuito para leitura no site da IFRS Foundation (conferir termos de uso) | Média | jefferson |
-| 10-Normas / 5-IBRACON | Orientação técnica de mercado | Comunicados técnicos e publicações do Ibracon (conferir acesso) | Baixa | super-auditor |
+| 10-Normas / 5-IBRACON | Orientação técnica de mercado | Comunicados técnicos e publicações do Ibracon (conferir acesso) | Baixa | especialista-auditoria |
 | 12-Liderança / 4-Inteligência Emocional | Competência de liderança | Goleman, Boyatzis e McKee (lista de leitura); trilhas da Fundação Bradesco (favoritos) | Média | jefferson (ensino) |
 | 12-Liderança / 6-Carreira e Desenvolvimento | Foco no cargo maior | Livros de carreira; plano de estudos no ClickUp | Média | jefferson |
 | 2-Controladoria / 2-IA / 2-Prompts para IA | Biblioteca de prompts | Prompts do próprio usuário e padrões de uso das skills | Média | jefferson |

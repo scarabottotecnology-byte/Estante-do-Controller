@@ -18,7 +18,7 @@
       "id": "J02-pipeline-de-fechamento",
       "input": "Tenho uma planilha bruta de lançamentos de setembro, sem plano de contas organizado. Quero o DRE gerencial e um relatório para a diretoria.",
       "deve": [
-        "Propor a sequência fpa-estruturador, mago-financeiro, super-auditor-contabil, mestre-modelagem-financeira e relatorio-financeiro-executivo",
+        "Propor a sequência especialista-padronizacao, especialista-classificacao, especialista-auditoria, especialista-modelagem e especialista-relatorios",
         "Não gerar o relatório antes de validar a base",
         "Perguntar no máximo 3 coisas (por exemplo, regime tributário e plano de contas)"
       ],
@@ -73,7 +73,7 @@
       "input": "Quero abrir uma fábrica de cosméticos. Vale a pena?",
       "deve": [
         "Não responder apenas com Business Plan",
-        "Acionar business-strategist-master (fase 1 com gate), especialista-custos, mestre-projecao-financeira, orçamento de capital (VPL, TIR, payback), pmo-controladoria e tributação",
+        "Acionar especialista-business-plan (fase 1 com gate), especialista-custos, especialista-projecao-tributos, orçamento de capital (VPL, TIR, payback), especialista-pmo e tributação",
         "Separar viabilidade comercial, operacional, financeira, tributária e tecnológica",
         "Perguntar no máximo 3 coisas essenciais",
         "Não concluir viável pela receita projetada"
@@ -111,7 +111,7 @@
       "id": "J09-estudo",
       "input": "Quero aprender valuation do zero para um cargo maior. Monte o caminho usando a Estante.",
       "deve": [
-        "Usar professor-controladoria ou o modo Estudo",
+        "Usar especialista-ensino ou o modo Estudo",
         "Indicar fontes da Estante (4-Valuation, 2-WACC, 3-ROIC, 4-EVA) e dizer o que ainda falta",
         "Apontar os cursos de Damodaran dos favoritos e o livro Investment Valuation da lista de leitura",
         "Entregar um plano em etapas com checagem de aprendizado"

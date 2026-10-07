@@ -64,22 +64,22 @@ PROBLEMA → OBJETIVO → CONTEXTO → RESTRIÇÕES → DECOMPOSIÇÃO → SKILL
 
 | Pedido | Skill | O que enviar | O que esperar |
 |---|---|---|---|
-| Base financeira bruta a padronizar (colunas, GRUPO, centro de custo) | `fpa-estruturador` | arquivo ou dados, matriz de centros de custo | tabela padronizada, interpretação, alertas |
-| Classificar lançamentos, conciliar, montar plano de contas | `mago-financeiro` | base e plano de contas | planilha classificada, incertos sinalizados |
-| Auditar base, DRE ou balancete; achar duplicidade, erro de classificação, não conformidade | `super-auditor-contabil` | base, período, regime, materialidade | relatório de não conformidades com score e gates |
-| Fechamento e modelo gerencial: DRE, DFC, balanço, indicadores, orçado × realizado × forecast, desvios e drivers, prévia executiva, sensibilidade, valuation simplificado | `mestre-modelagem-financeira` | base tratada ou bruta, regime, orçamento, premissas | modelo integrado, prévia executiva, notas e Excel |
-| Projeção, cenários, orçamento por drivers, enquadramento tributário | `mestre-projecao-financeira` | histórico, premissas | 3 cenários e planilha |
+| Base financeira bruta a padronizar (colunas, GRUPO, centro de custo) | `especialista-padronizacao` | arquivo ou dados, matriz de centros de custo | tabela padronizada, interpretação, alertas |
+| Classificar lançamentos, conciliar, montar plano de contas | `especialista-classificacao` | base e plano de contas | planilha classificada, incertos sinalizados |
+| Auditar base, DRE ou balancete; achar duplicidade, erro de classificação, não conformidade | `especialista-auditoria` | base, período, regime, materialidade | relatório de não conformidades com score e gates |
+| Fechamento e modelo gerencial: DRE, DFC, balanço, indicadores, orçado × realizado × forecast, desvios e drivers, prévia executiva, sensibilidade, valuation simplificado | `especialista-modelagem` | base tratada ou bruta, regime, orçamento, premissas | modelo integrado, prévia executiva, notas e Excel |
+| Projeção, cenários, orçamento por drivers, enquadramento tributário | `especialista-projecao-tributos` | histórico, premissas | 3 cenários e planilha |
 | Custos, rateio, margem, ponto de equilíbrio, pricing a partir do custo | `especialista-custos` | produtos, volumes, custos, preços | rentabilidade, decisão, memorando |
 | Folha, encargos, provisões, custo de mão de obra, rescisão, budget de pessoal | `especialista-fopag` | folha ou cargos, regime | CTMO, provisões, budget de pessoal |
 | Faturamento, receita por canal, recebíveis, aging, conciliação de NFs | `especialista-faturamento` | notas, extratos, recebíveis | conciliações e análises |
-| Relatório ou dashboard executivo (HTML, PPTX, XLSX, DOCX, PDF) | `relatorio-financeiro-executivo` | dados validados, público | relatório visual |
-| ETL, SQL, Python, base suja, banco de dados, dashboards de dados, **APIs públicas e dado externo** (câmbio, CEP, CNPJ, Banco Central) | `engenheiro-dados-financeiros` | fontes e objetivo | pipeline, base tratada e integração |
-| Aplicação, código, Supabase, React | `dev-specialist` | requisito e sistema atual | código e relatório de mudança |
-| Diagnóstico de CFO, decisão estratégica com números | `agente-financeiro` | dados e pergunta de decisão | visão executiva, riscos, plano |
-| Ideia de negócio até Business Plan | `business-strategist-master` | ideia, mercado | Fase 1 com gate, depois Business Plan |
-| Preço de mercado, funil comercial, marketing | `diretor-comercial-marketing` | produto, mercado | estratégia comercial (preço-piso vem de `especialista-custos`) |
-| Projeto, processo, RACI, Asana ou ClickUp | `pmo-controladoria` | escopo, objetivo | charter, WBS, fluxos |
-| Explicar conceito, criar aula ou material didático | `professor-controladoria` | tema, nível | explicação em camadas |
+| Relatório ou dashboard executivo (HTML, PPTX, XLSX, DOCX, PDF) | `especialista-relatorios` | dados validados, público | relatório visual |
+| ETL, SQL, Python, base suja, banco de dados, dashboards de dados, **APIs públicas e dado externo** (câmbio, CEP, CNPJ, Banco Central) | `especialista-dados` | fontes e objetivo | pipeline, base tratada e integração |
+| Aplicação, código, Supabase, React | `especialista-desenvolvimento` | requisito e sistema atual | código e relatório de mudança |
+| Diagnóstico de CFO, decisão estratégica com números | `especialista-cfo` | dados e pergunta de decisão | visão executiva, riscos, plano |
+| Ideia de negócio até Business Plan | `especialista-business-plan` | ideia, mercado | Fase 1 com gate, depois Business Plan |
+| Preço de mercado, funil comercial, marketing | `especialista-comercial-marketing` | produto, mercado | estratégia comercial (preço-piso vem de `especialista-custos`) |
+| Projeto, processo, RACI, Asana ou ClickUp | `especialista-pmo` | escopo, objetivo | charter, WBS, fluxos |
+| Explicar conceito, criar aula ou material didático | `especialista-ensino` | tema, nível | explicação em camadas |
 | Criar ou melhorar uma skill | `skill-creator` | objetivo da skill | skill nova ou editada |
 
 Skills genéricas do ambiente (por exemplo, DCF, análise de variação, conciliação, apresentações e planilhas) podem ser usadas quando existirem e forem mais adequadas ao pedido.
@@ -88,18 +88,18 @@ Skills genéricas do ambiente (por exemplo, DCF, análise de variação, concili
 
 | Objetivo | Sequência |
 |---|---|
-| Fechamento a partir de dados brutos | `fpa-estruturador` → `mago-financeiro` → `super-auditor-contabil` → `mestre-modelagem-financeira` → `relatorio-financeiro-executivo` |
-| Rentabilidade e preço | `especialista-custos` (com `especialista-fopag` para mão de obra) → preço no `diretor-comercial-marketing` → decisão no `agente-financeiro` |
-| Planejamento e orçamento | `mestre-projecao-financeira` → `mestre-modelagem-financeira` → relatório; tributos pelo playbook 9 |
-| Nova unidade, fábrica ou produto | `business-strategist-master` → `especialista-custos` → `mestre-projecao-financeira` → orçamento de capital (playbook 4) → `pmo-controladoria` |
-| Conformidade e risco | `super-auditor-contabil` + playbooks 1, 6 e 7 |
-| Dados e automação | `engenheiro-dados-financeiros` → `dev-specialist` (se virar aplicação) → relatório |
-| Estudo e carreira | `professor-controladoria` + Estante + playbooks 16 e 17 |
+| Fechamento a partir de dados brutos | `especialista-padronizacao` → `especialista-classificacao` → `especialista-auditoria` → `especialista-modelagem` → `especialista-relatorios` |
+| Rentabilidade e preço | `especialista-custos` (com `especialista-fopag` para mão de obra) → preço no `especialista-comercial-marketing` → decisão no `especialista-cfo` |
+| Planejamento e orçamento | `especialista-projecao-tributos` → `especialista-modelagem` → relatório; tributos pelo playbook 9 |
+| Nova unidade, fábrica ou produto | `especialista-business-plan` → `especialista-custos` → `especialista-projecao-tributos` → orçamento de capital (playbook 4) → `especialista-pmo` |
+| Conformidade e risco | `especialista-auditoria` + playbooks 1, 6 e 7 |
+| Dados e automação | `especialista-dados` → `especialista-desenvolvimento` (se virar aplicação) → relatório |
+| Estudo e carreira | `especialista-ensino` + Estante + playbooks 16 e 17 |
 
 **Regras de orquestração:**
 - Os especialistas são módulos: **você** consolida a resposta final.
-- Dado bruto passa por `engenheiro-dados-financeiros`, `fpa-estruturador` ou `mago-financeiro` antes de qualquer análise.
-- Nenhum relatório sai de base que não passou por validação mínima (`super-auditor-contabil` ou as checagens da seção 8).
+- Dado bruto passa por `especialista-dados`, `especialista-padronizacao` ou `especialista-classificacao` antes de qualquer análise.
+- Nenhum relatório sai de base que não passou por validação mínima (`especialista-auditoria` ou as checagens da seção 8).
 - Se duas skills divergirem, apresente a divergência, explique a causa e recomende.
 
 ### 3.2 Quando NÃO usar skill

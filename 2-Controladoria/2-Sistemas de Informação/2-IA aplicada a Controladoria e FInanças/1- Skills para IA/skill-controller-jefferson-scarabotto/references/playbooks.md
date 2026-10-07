@@ -34,7 +34,7 @@ Use estes playbooks para os temas da Estante que **não** têm skill própria. C
 
 ## 1. Qual CPC para qual pergunta
 
-Os PDFs estão em `10-Normas/2-CPC/`. A tabela usa os títulos dos arquivos da Estante. Para itens específicos, abra o PDF (os itens já conferidos para auditoria estão em `super-auditor-contabil/references/normas-contabeis.md` e para custos em `especialista-custos/references/normas-e-fontes-custos.md`).
+Os PDFs estão em `10-Normas/2-CPC/`. A tabela usa os títulos dos arquivos da Estante. Para itens específicos, abra o PDF (os itens já conferidos para auditoria estão em `especialista-auditoria/references/normas-contabeis.md` e para custos em `especialista-custos/references/normas-e-fontes-custos.md`).
 
 | Pergunta | CPC (arquivo da Estante) |
 |---|---|
@@ -139,7 +139,7 @@ Os PDFs estão em `10-Normas/2-CPC/`. A tabela usa os títulos dos arquivos da E
 
 **Fontes:** `7-Auditoria/3-Controles Internos` (Manual de Integridade, Riscos e Controles Internos da Gestão, do MP); `2-Auditoria Interna` (Plano Anual de Auditoria Baseado em Riscos; Compliance Descomplicado); alavancas de controle de Simons em `2-Controladoria/3-Controles Gerenciais` e `4-Management Control`. Cursos de riscos da Enap nos favoritos. **Lacuna:** a subpasta `4-Riscos` está vazia.
 
-**Skills relacionadas:** `super-auditor-contabil` (testes sobre base), `pmo-controladoria` (registro de riscos de projeto).
+**Skills relacionadas:** `especialista-auditoria` (testes sobre base), `especialista-pmo` (registro de riscos de projeto).
 
 **Entregável:** matriz de riscos e controles, plano de resposta.
 
@@ -153,7 +153,7 @@ Os PDFs estão em `10-Normas/2-CPC/`. A tabela usa os títulos dos arquivos da E
 
 **Fontes:** Plano Anual de Auditoria Baseado em Riscos e Compliance Descomplicado (`7-Auditoria/2-Auditoria Interna`); apostila de auditoria contábil (`1-Auditoria Independente`).
 
-**Skill:** `super-auditor-contabil` para executar testes na base.
+**Skill:** `especialista-auditoria` para executar testes na base.
 
 **Entregável:** plano anual, programa de auditoria e relatório.
 
@@ -188,7 +188,7 @@ Os PDFs estão em `10-Normas/2-CPC/`. A tabela usa os títulos dos arquivos da E
 
 **Fontes da Estante:** `9-Tributario/1-Tributação` (CF, CTN, RIR, Leis 9.430, 12.973, 10.637, 10.833, LCs 116, 87, 123); `2-Planejamento Tributário`; `3-Reforma Tributária`; working papers em `11-Pesquisa & Referencia/4-Working Papers`.
 
-**Skills relacionadas:** `mestre-projecao-financeira` (enquadramento e alerta), `especialista-fopag` (encargos).
+**Skills relacionadas:** `especialista-projecao-tributos` (enquadramento e alerta), `especialista-fopag` (encargos).
 
 **Alertas:** não apresente planejamento tributário como certeza jurídica; recomende validação por profissional habilitado. Alíquotas e prazos: `VERIFICAR VIGÊNCIA`.
 
@@ -204,7 +204,7 @@ Os PDFs estão em `10-Normas/2-CPC/`. A tabela usa os títulos dos arquivos da E
 
 **Fontes:** `6-Performance` (Guia Referencial de Indicadores; BSC Módulo 3; ROIC; EVA e CFROI). Livros: Kaplan e Norton, Stewart (lista de leitura).
 
-**Skill relacionada:** `agente-financeiro` (KPIs obrigatórios).
+**Skill relacionada:** `especialista-cfo` (KPIs obrigatórios).
 
 **Entregável:** painel de indicadores com definições e metas.
 
@@ -216,7 +216,7 @@ Os PDFs estão em `10-Normas/2-CPC/`. A tabela usa os títulos dos arquivos da E
 
 **Fontes:** `4-Finanças Corporativas/6-M&A` (Fusões e Aquisições de Empresas); CPC 15 e CPC 36; `Kuwabara` em `1-Contabilidade/2-Contabilidade Societaria`.
 
-**Skills relacionadas:** `mestre-modelagem-financeira`, `super-auditor-contabil`, `business-strategist-master`.
+**Skills relacionadas:** `especialista-modelagem`, `especialista-auditoria`, `especialista-business-plan`.
 
 **Entregável:** relatório de achados de due diligence, ponte de valor (preço, ajustes).
 
@@ -280,7 +280,7 @@ Os PDFs estão em `10-Normas/2-CPC/`. A tabela usa os títulos dos arquivos da E
 
 **Método:** diagnosticar o nível; ensinar em camadas (conceito, método, aplicação); usar a Estante como fonte; criar exercícios com gabarito; ligar o estudo ao checklist de hard skills.
 
-**Skill relacionada:** `professor-controladoria` (didática e doutrinadores).
+**Skill relacionada:** `especialista-ensino` (didática e doutrinadores).
 
 **Ferramentas:** checklist de 51 hard skills no artefato; favoritos de cursos; plano de 12 semanas no ClickUp.
 
