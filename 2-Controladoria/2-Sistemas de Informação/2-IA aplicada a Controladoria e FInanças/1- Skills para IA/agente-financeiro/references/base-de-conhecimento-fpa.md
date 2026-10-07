@@ -130,6 +130,8 @@ Diferentemente do orçamento tradicional (que apenas ajusta valores do ano anter
 - **Exemplo**: empresa registra receita alta, mas clientes não pagam → lucro "no papel" e caixa vazio
 - **Como identificar**: comparar sempre Lucro Líquido x Fluxo de Caixa Operacional — se há grande divergência, sinal vermelho
 
+> **Atenção:** os limiares citados nesta seção (por exemplo, dívida de curto prazo acima de 1,5 vez o caixa e concentração de 40% ou mais em um cliente) são **heurísticas de mercado**, não normas. Use-os como gatilho de investigação e calibre pelo setor e pelo histórico da própria empresa.
+
 > **Regra de Ouro**: Fluxo de Caixa é o coração da empresa. Negócios não quebram por falta de lucro, mas por falta de liquidez.
 
 ---
@@ -151,7 +153,9 @@ Diferentemente do orçamento tradicional (que apenas ajusta valores do ano anter
 |-----------|---------|
 | ROE | Lucro Líquido / Patrimônio Líquido |
 | ROA | Lucro Líquido / Ativos Totais Médios |
-| ROIC | EBIT × (1 - Taxa de Imposto) / (Dívida de Longo Prazo + Patrimônio Líquido - Caixa Não Operacional) |
+| ROIC | NOPAT / Capital Investido, com NOPAT = EBIT × (1 - Taxa de Imposto) e Capital Investido = Dívida onerosa (curto e longo prazo) + Patrimônio Líquido - Caixa excedente (não operacional) |
+
+> **Convenção:** declare sempre a definição usada (capital médio ou final; tratamento de arrendamentos e de caixa). Comparar ROIC com o custo de capital (WACC) é o que indica criação de valor.
 | ROCE | EBIT / (Ativos Totais - Passivos Circulantes) |
 
 ### Quando Usar
@@ -260,7 +264,7 @@ Não variam com o volume de produção/vendas:
 | **Indiretos** | ICMS, ISS, IPI, PIS, COFINS |
 | **Sobre Receita** | PIS, COFINS, ISS, ICMS |
 | **Sobre Lucro** | IRPJ, CSLL, Adicional de IR |
-| **Sobre Folha** | INSS, FGTS, RAT, Sistema S, IRRF |
+| **Sobre Folha** | INSS patronal, FGTS, RAT, Sistema S (o IRRF sobre salários é retenção do empregado, não custo da empresa) |
 
 > **Atenção**: IRPJ e CSLL aparecem tanto em "Diretos" quanto em "Sobre Lucro" — são impostos diretos que incidem sobre o lucro da empresa.
 
@@ -355,7 +359,7 @@ Não variam com o volume de produção/vendas:
 | Tipo | Definição | Exemplos |
 |------|-----------|----------|
 | **Receita Operacional** | Receita do core do negócio | Vendas ou prestação de serviços principais; loja de roupas, clínica médica, venda de consultorias |
-| **Receita Não Operacional** | Receita fora das operações principais | Venda de ativo imobilizado, ganhos com juros, recuperação de impostos |
+| **Receita Não Operacional (conceito gerencial)** | Receita fora das operações principais | Venda de ativo imobilizado, ganhos com juros, recuperação de impostos. Na DRE da Lei das S.A., o art. 187, inciso IV (redação da Lei 11.941/2009), fala em "outras receitas" e "outras despesas", não em resultado não operacional |
 | **Receita Diferida** | Receita recebida antecipadamente | Assinatura anual, contrato de manutenção, mensalidades escolares |
 | **Receita Não Recorrente** | Receita excepcional e imprevisível | Indenização, ganhos na venda de ativos, receita de doação ou subvenção |
 | **Receita Financeira** | Gerada a partir de aplicações financeiras e gestão de caixa | Rendimentos de aplicação, juros recebidos, descontos obtidos, variação cambial ativa |
@@ -398,9 +402,9 @@ Não variam com o volume de produção/vendas:
 
 4. **Amortização**: Aplicada a ativos intangíveis (como patentes), com alocação do custo ao longo do tempo.
 
-5. **Arrendamento Mercantil Financeiro**: Transfere substancialmente os riscos e benefícios da posse do bem ao arrendatário. É registrado como ativo e passivo no balanço.
+5. **Arrendamento (arrendatário, CPC 06)**: na data de início, o arrendatário reconhece o **ativo de direito de uso** e o **passivo de arrendamento** (CPC 06, item 22). Pode optar por não aplicar o modelo a arrendamentos de **curto prazo** e de **ativo de baixo valor**, reconhecendo os pagamentos como despesa (itens 5 e 6). Isso afeta EBITDA, endividamento e indicadores de retorno.
 
-6. **Arrendamento Operacional**: Tratado como despesa operacional. Não é registrado no balanço patrimonial.
+6. **Arrendamento (arrendador, CPC 06)**: o arrendador classifica cada contrato como **financeiro** (transfere substancialmente riscos e benefícios) ou **operacional** (itens 61 e 62). A classificação "financeiro × operacional" **não** define mais o registro no balanço do arrendatário.
 
 7. **Goodwill (Ágio por Expectativa de Rentabilidade Futura)**: Diferença entre o valor pago na aquisição de uma empresa e o valor justo dos ativos líquidos identificáveis.
 
@@ -438,7 +442,7 @@ Não variam com o volume de produção/vendas:
 | **Receita Recorrente (MRR/ARR)** | Monthly/Annual Recurring Revenue | Receita mensal ou anual recorrente | Mensurar crescimento previsível |
 | **Custos de Aquisição** | — | Soma do CAC + custos de marketing e vendas; inclui salários de equipes e ferramentas | Calcular ROI de aquisição |
 
-> **Relação crítica**: LTV deve ser significativamente maior que CAC. Regra geral: LTV ≥ 3x CAC para negócios SaaS saudáveis.
+> **Relação crítica**: LTV deve ser significativamente maior que CAC. A razão "LTV ≥ 3x CAC" é uma **heurística** comum em negócios de assinatura, não uma regra; calibre pelo modelo de negócio, pela margem e pelo prazo de payback do CAC.
 
 ---
 

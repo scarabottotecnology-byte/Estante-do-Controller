@@ -1,0 +1,102 @@
+{
+  "skill": "agente-financeiro",
+  "version_note": "Casos sintéticos criados em 06/10/2026. Números fictícios, respostas calculadas à mão.",
+  "how_to_use": "Envie o 'input' sem dar a resposta. Um caso passa se todos os itens de 'deve' ocorrerem e nenhum de 'nao_deve' ocorrer.",
+  "cases": [
+    {
+      "id": "A01-lucro-sem-caixa",
+      "input": "No ano, lucro líquido de R$ 15 milhões e fluxo de caixa operacional de −R$ 5 milhões. Receita cresceu 30%. O que está acontecendo?",
+      "deve": [
+        "Apontar o problema de conversão de caixa (FCO negativo com lucro positivo)",
+        "Levantar hipóteses: contas a receber, estoque, prazo concedido, capital de giro crescente",
+        "Pedir os dados que confirmam (aging, estoque, prazos) em até 3 perguntas",
+        "Tratar as causas como hipóteses até haver dados"
+      ],
+      "nao_deve": ["Afirmar a causa como fato", "Recomendar corte de custo sem investigar o capital de giro"]
+    },
+    {
+      "id": "A02-ponto-de-equilibrio-e-seguranca",
+      "input": "Custos fixos de R$ 600 mil por mês, margem de contribuição de 40% e receita do mês de R$ 1,8 milhão.",
+      "deve": [
+        "Ponto de equilíbrio de R$ 1,5 milhão",
+        "Margem de segurança de 16,7%",
+        "Mostrar a memória de cálculo"
+      ],
+      "nao_deve": ["Usar a receita total como ponto de equilíbrio"]
+    },
+    {
+      "id": "A03-roic-contra-custo-de-capital",
+      "input": "EBIT de R$ 2.000, alíquota de 34%, dívida de curto prazo R$ 500, dívida de longo prazo R$ 1.500, patrimônio líquido R$ 3.000 e caixa excedente R$ 500. O custo de capital da empresa é 12%.",
+      "deve": [
+        "NOPAT de R$ 1.320",
+        "Capital investido de R$ 4.500 (dívida onerosa de curto e longo prazo, mais PL, menos caixa excedente)",
+        "ROIC de cerca de 29,3% e spread de cerca de 17,3 pontos percentuais sobre o custo de capital",
+        "Declarar a definição de capital usada (final ou médio)"
+      ],
+      "nao_deve": ["Usar só a dívida de longo prazo no capital investido"]
+    },
+    {
+      "id": "A04-dados-insuficientes",
+      "input": "Minha margem caiu. O que eu faço?",
+      "deve": [
+        "Não inventar números nem causas",
+        "Pedir o mínimo necessário (período, tipo de margem, comparativo, abertura por produto ou custo), no máximo 3 perguntas",
+        "Listar na seção de dados necessários o que destrava a análise",
+        "Indicar hipóteses típicas rotuladas como hipóteses"
+      ],
+      "nao_deve": ["Entregar diagnóstico específico sem dados"]
+    },
+    {
+      "id": "A05-opcoes-de-decisao",
+      "input": "Preço R$ 100, custo variável R$ 60, volume de 10.000 unidades e custos fixos de R$ 250.000. Vale subir o preço em 5% se o volume cair 8%?",
+      "deve": [
+        "Resultado atual: MC de R$ 400.000 e resultado de R$ 150.000",
+        "Opção de subir o preço: MC unitária de R$ 45, volume de 9.200 un, MC de R$ 414.000 e resultado de R$ 164.000 (ganho de R$ 14.000)",
+        "Volume mínimo de equilíbrio para o aumento valer: cerca de 8.889 un, ou seja, tolera queda de até cerca de 11,1%",
+        "Comparar com não fazer nada e citar o que mudaria a conclusão (elasticidade, reação de concorrentes)"
+      ],
+      "nao_deve": ["Recomendar sem apresentar as duas opções"]
+    },
+    {
+      "id": "A06-benchmark-sem-fonte",
+      "input": "Meu Opex é 28% da receita. Como estou frente ao mercado?",
+      "deve": [
+        "Dizer que não há benchmark de mercado sem fonte",
+        "Pedir a fonte ou o setor e a base de comparação",
+        "Propor comparar com o histórico da própria empresa e com a evolução do Opex em relação à receita"
+      ],
+      "nao_deve": ["Citar um percentual médio do setor de memória"]
+    },
+    {
+      "id": "A07-arrendamento-cpc-06",
+      "input": "Alugamos três lojas por contratos de 10 anos. Como são arrendamentos operacionais, não entram no balanço, certo? Como isso afeta o EBITDA e o endividamento?",
+      "deve": [
+        "Corrigir: para o arrendatário, o CPC 06 (item 22) exige reconhecer ativo de direito de uso e passivo de arrendamento",
+        "Mencionar as isenções de curto prazo e de ativo de baixo valor (itens 5 e 6)",
+        "Explicar o efeito: EBITDA maior (despesa de aluguel sai) e endividamento maior; depreciação e juros entram no resultado",
+        "Citar o CPC 06 da Estante"
+      ],
+      "nao_deve": ["Confirmar que arrendamento operacional não vai ao balanço"]
+    },
+    {
+      "id": "A08-validacao-falha",
+      "input": "Receita consolidada de R$ 10,0 milhões. Por BU: A R$ 4,2 milhões, B R$ 3,1 milhões e C R$ 2,1 milhões. Faça o diagnóstico de margem.",
+      "deve": [
+        "Notar que a soma das BUs é R$ 9,4 milhões, R$ 0,6 milhão a menos que o consolidado",
+        "Informar a divergência antes de analisar",
+        "Tratar o resultado como preliminar e pedir a explicação (eliminações, BU faltante)"
+      ],
+      "nao_deve": ["Calcular margens por BU como se os dados estivessem consistentes"]
+    },
+    {
+      "id": "A09-modo-rapido",
+      "input": "Qual a margem de contribuição de um produto vendido a R$ 80, com custo variável de R$ 50 e comissão de 5%?",
+      "deve": [
+        "Resposta curta com o cálculo: comissão de R$ 4 e MC de R$ 26 (32,5%)",
+        "Base da análise em 2 a 3 linhas",
+        "Não usar o formato completo de 9 seções"
+      ],
+      "nao_deve": ["Entregar relatório executivo completo para uma pergunta simples"]
+    }
+  ]
+}
