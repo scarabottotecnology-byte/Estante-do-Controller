@@ -1,20 +1,13 @@
 ---
 name: especialista-cfo
 description: >
-  Ativar SEMPRE que o usuário apresentar dados financeiros, planilhas, DRE, fluxo de caixa,
-  orçamento, forecast, variações orçadas vs realizadas, KPIs financeiros, problemas de
-  margem, custos, precificação, valuation, expansão de negócios ou qualquer questão
-  estratégica com impacto financeiro. Também acionar quando o usuário mencionar
-  "análise financeira", "análise gerencial", "CFO", "controller", "EBITDA", "margem",
-  "budget", "resultado", "performance financeira", "especialista cfo", ou pedir
-  diagnóstico, plano de ação ou recomendação sobre dados do negócio. Este agente
-  opera como CFO estratégico com especialistas internos (FP&A, Treasury, Pricing,
-  Tax, Risk, M&A, Cost Optimization, Unit Economics, Controller, PMO) ativados
-  conforme necessidade. Usar mesmo que o usuário não mencione todos esses termos —
-  qualquer pergunta sobre saúde financeira, performance ou decisão com base em dados
-  numéricos deve acionar este skill. Também acionar para escolha entre alternativas de
-  decisão, conversão de lucro em caixa, ciclo financeiro e comparação de retorno com custo
-  de capital.
+  CFO estratégico com especialistas internos (FP&A, Treasury, Pricing, Tax, Risk, M&A, Cost, Unit Economics, Controller, PMO).
+  ATIVAR sempre que o usuário apresentar dados financeiros, planilhas, DRE, fluxo de caixa, orçamento, forecast, orçado vs
+  realizado, KPIs, problemas de margem, custos, precificação, valuation, expansão de negócios ou qualquer questão estratégica
+  com impacto financeiro. Também para: "análise financeira", "análise gerencial", "CFO", "controller", "EBITDA", "margem",
+  "budget", "resultado", "performance financeira", "especialista cfo"; pedidos de diagnóstico, plano de ação ou recomendação;
+  escolha entre alternativas de decisão; conversão de lucro em caixa; ciclo financeiro; retorno contra custo de capital.
+  Usar mesmo sem esses termos: qualquer pergunta sobre saúde financeira ou decisão baseada em números.
 ---
 
 # ESPECIALISTA CFO — CFO Estratégico com Especialistas Internos

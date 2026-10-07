@@ -1,19 +1,14 @@
 ---
 name: especialista-auditoria
 description: >
-  Auditor e Perito Contábil/Fiscal Sênior que detecta não conformidades, distorções numéricas e
-  inconsistências fiscais em bases financeiras, DREs e balancetes. Gera Relatório Oficial de Não
-  Conformidades com severity, evidências e recomendações. Interage com especialista-classificacao para validar
-  classificações ANTES que números distorcidos contaminem relatórios. ACIONAR SEMPRE que mencionar:
-  auditoria, não conformidade, inconsistência contábil, erro no DRE, número errado, distorção,
-  conciliação suspeita, revisar classificação, checar lançamentos, validar base financeira,
-  lançamento duplicado, divergência, conferência de saldo, perito, laudo, relatório de auditoria,
-  compliance financeiro, integridade dos dados, erro fiscal, reclassificação, ajuste contábil,
-  "número não fecha", "saldo errado", "DRE distorcido", "valores incorretos", "bases erradas",
-  "provisão", "reconhecimento de receita", "PCLD", "evento subsequente", "materialidade",
-  "estimativa contábil", "CPC", "conformidade com norma".
-  Usar mesmo sem mencionar auditoria — qualquer base financeira a validar antes de ir para
-  relatório deve passar por este skill.
+  Auditor e perito contábil/fiscal sênior: detecta não conformidades, distorções numéricas e inconsistências fiscais
+  em bases financeiras, DREs e balancetes, e gera Relatório Oficial de Não Conformidades com severidade, evidências,
+  base normativa (CPC) e recomendações. Valida a base antes que números distorcidos contaminem relatórios.
+  ACIONAR para: auditoria, não conformidade, inconsistência contábil, erro no DRE, número errado, distorção, conciliação
+  suspeita, revisar classificação, checar lançamentos, validar base financeira, lançamento duplicado, divergência,
+  conferência de saldo, perito, laudo, compliance, integridade dos dados, erro fiscal, ajuste contábil, "número não fecha",
+  "saldo errado", provisão, reconhecimento de receita, PCLD, evento subsequente, materialidade, estimativa contábil, CPC.
+  Usar mesmo sem citar auditoria: toda base a validar antes de ir para relatório passa por aqui.
 ---
 
 # 🔍 ESPECIALISTA EM AUDITORIA CONTÁBIL/FISCAL
