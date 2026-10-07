@@ -1,214 +1,126 @@
-# Referência Tributária — Brasil 2025/2026
+# Referência tributária — fatos conferidos nas leis da Estante
 
-## Simples Nacional — Tabelas de Alíquotas (LC 123/2006)
+Revisão de 06/10/2026. Esta referência **substitui** a versão anterior, que continha tabelas de NCM e CFOP, faixas de ICMS e estimativas de alíquota da reforma sem fonte, além de um cronograma da reforma inconsistente.
 
-### Limite de enquadramento
-- Receita Bruta anual ≤ R$ 4.800.000,00
-- MEI: ≤ R$ 81.000,00 (regime próprio)
-
-### Anexo I — Comércio (revenda de mercadorias)
-
-| Faixa | RBT12 | Alíquota Nominal | Parcela a Deduzir |
-|---|---|---|---|
-| 1ª | Até R$ 180.000 | 4,00% | — |
-| 2ª | De R$ 180.001 a R$ 360.000 | 7,30% | R$ 5.940,00 |
-| 3ª | De R$ 360.001 a R$ 720.000 | 9,50% | R$ 13.860,00 |
-| 4ª | De R$ 720.001 a R$ 1.800.000 | 10,70% | R$ 22.500,00 |
-| 5ª | De R$ 1.800.001 a R$ 3.600.000 | 14,30% | R$ 87.300,00 |
-| 6ª | De R$ 3.600.001 a R$ 4.800.000 | 19,00% | R$ 378.000,00 |
-
-**Fórmula alíquota efetiva:** `= (RBT12 × alíq_nominal − parcela_deduzir) / RBT12`
-**DAS mensal:** `= Receita_mês × alíquota_efetiva`
-
-### Anexo II — Indústria (fabricação de produtos)
-
-| Faixa | RBT12 | Alíquota Nominal | Parcela a Deduzir |
-|---|---|---|---|
-| 1ª | Até R$ 180.000 | 4,50% | — |
-| 2ª | De R$ 180.001 a R$ 360.000 | 7,80% | R$ 5.940,00 |
-| 3ª | De R$ 360.001 a R$ 720.000 | 10,00% | R$ 13.860,00 |
-| 4ª | De R$ 720.001 a R$ 1.800.000 | 11,20% | R$ 22.500,00 |
-| 5ª | De R$ 1.800.001 a R$ 3.600.000 | 14,70% | R$ 85.500,00 |
-| 6ª | De R$ 3.600.001 a R$ 4.800.000 | 30,00% | R$ 720.000,00 |
-
-### Anexo III — Serviços (locação de bens, agências, laboratórios, academias, etc.)
-
-| Faixa | RBT12 | Alíquota Nominal | Parcela a Deduzir |
-|---|---|---|---|
-| 1ª | Até R$ 180.000 | 6,00% | — |
-| 2ª | De R$ 180.001 a R$ 360.000 | 11,20% | R$ 9.360,00 |
-| 3ª | De R$ 360.001 a R$ 720.000 | 13,50% | R$ 17.640,00 |
-| 4ª | De R$ 720.001 a R$ 1.800.000 | 16,00% | R$ 35.640,00 |
-| 5ª | De R$ 1.800.001 a R$ 3.600.000 | 21,00% | R$ 125.640,00 |
-| 6ª | De R$ 3.600.001 a R$ 4.800.000 | 33,00% | R$ 648.000,00 |
-
-### Anexo IV — Serviços com ISS retido (limpeza, vigilância, obras, etc.)
-
-| Faixa | RBT12 | Alíquota Nominal | Parcela a Deduzir |
-|---|---|---|---|
-| 1ª | Até R$ 180.000 | 4,50% | — |
-| 2ª | De R$ 180.001 a R$ 360.000 | 9,00% | R$ 8.100,00 |
-| 3ª | De R$ 360.001 a R$ 720.000 | 10,20% | R$ 12.420,00 |
-| 4ª | De R$ 720.001 a R$ 1.800.000 | 14,00% | R$ 39.780,00 |
-| 5ª | De R$ 1.800.001 a R$ 3.600.000 | 22,00% | R$ 183.780,00 |
-| 6ª | De R$ 3.600.001 a R$ 4.800.000 | 33,00% | R$ 828.000,00 |
-
-### Anexo V — Serviços com fator R (TI, medicina, engenharia, etc.)
-
-Fator R = Folha de Salários acumulada 12 meses / RBT12
-- Fator R ≥ 28% → aplica tabela do Anexo III (alíquotas menores)
-- Fator R < 28% → aplica tabela do Anexo V
-
-| Faixa | RBT12 | Alíquota Nominal | Parcela a Deduzir |
-|---|---|---|---|
-| 1ª | Até R$ 180.000 | 15,50% | — |
-| 2ª | De R$ 180.001 a R$ 360.000 | 18,00% | R$ 4.500,00 |
-| 3ª | De R$ 360.001 a R$ 720.000 | 19,50% | R$ 9.900,00 |
-| 4ª | De R$ 720.001 a R$ 1.800.000 | 20,50% | R$ 17.100,00 |
-| 5ª | De R$ 1.800.001 a R$ 3.600.000 | 23,00% | R$ 62.100,00 |
-| 6ª | De R$ 3.600.001 a R$ 4.800.000 | 30,50% | R$ 540.000,00 |
+**Como usar:**
+- Cada fato abaixo traz a fonte na Estante (`9-Tributario/`) e o artigo conferido.
+- **Tudo é sujeito à vigência.** A legislação muda; antes de afirmar valor em parecer, planejamento ou proposta, confira a redação atual. Marque `VERIFICAR VIGÊNCIA` quando não puder conferir.
+- O que **não** está aqui, ou não foi conferido, está listado na seção 8. Não complete de memória.
+- Não apresente planejamento tributário como certeza jurídica. Recomende validação por contador ou advogado tributarista.
 
 ---
 
-## Lucro Presumido — Alíquotas e Percentuais de Presunção
+## 1. Simples Nacional (LC 123/2006)
 
-### Percentuais de presunção (base IRPJ)
-| Atividade | % Presunção IRPJ | % Presunção CSLL |
+Fonte: `9-Tributario/1-Tributação/LC 123-2006 (Simples Nacional).pdf`.
+
+**Limites e exclusão**
+- Empresa de pequeno porte: receita bruta anual maior que R$ 360.000 e até **R$ 4.800.000** (LC 123, art. 3º, II, redação da LC 155/2016).
+- Excesso do limite: a exclusão tem efeito no ano-calendário seguinte se o excesso não passar de 20% do limite (art. 3º, § 9º-A); para excessos maiores e no ano de início de atividade, há efeitos retroativos nos termos do art. 3º, §§ 9º a 13. Confira os parágrafos antes de afirmar o efeito.
+- Sublimite de R$ 3.600.000 para ICMS e ISS: o dispositivo, incluído pela LC 155/2016, está no texto da LC 123 da Estante logo antes do art. 14 e remete aos §§ 17 e 17-A do art. 18 e ao § 4º do art. 19. A consequência (recolhimento fora do DAS acima do sublimite) e a aplicação por estado **devem ser conferidas** nesses dispositivos.
+
+**Cálculo**
+- Alíquota efetiva = (RBT12 × alíquota nominal − parcela a deduzir) / RBT12, com RBT12 = receita bruta dos 12 meses anteriores ao período de apuração. DAS do mês = receita do mês × alíquota efetiva.
+
+**Fator R (art. 18, §§ 5º-J, 5º-K e 5º-M):** para as atividades do § 5º-I, se a razão entre a folha de salários e a receita bruta dos 12 meses anteriores for **igual ou superior a 28%**, aplica-se o Anexo III; se for **inferior a 28%**, o Anexo V.
+
+**Tabelas (vigência de 01/01/2018, conforme o texto consolidado da Estante)**
+
+*Anexo I (comércio): conferido integralmente.*
+
+| Faixa | RBT12 | Alíquota nominal | Parcela a deduzir (R$) |
+|---|---|---|---|
+| 1ª | até 180.000 | 4,00% | 0 |
+| 2ª | 180.000,01 a 360.000 | 7,30% | 5.940 |
+| 3ª | 360.000,01 a 720.000 | 9,50% | 13.860 |
+| 4ª | 720.000,01 a 1.800.000 | 10,70% | 22.500 |
+| 5ª | 1.800.000,01 a 3.600.000 | 14,30% | 87.300 |
+| 6ª | 3.600.000,01 a 4.800.000 | 19,00% | 378.000 |
+
+*Anexos II a V:* as **alíquotas nominais** abaixo e as parcelas das faixas 2 e 3 foram conferidas no texto da Estante. **As parcelas das faixas 4 a 6 vêm da versão anterior desta referência e devem ser conferidas no anexo da LC 123**, porque a extração do PDF não separou as colunas de forma confiável.
+
+| Anexo | Atividade (conforme art. 18) | Alíquotas nominais das faixas 1 a 6 | Parcelas a deduzir, faixas 2 a 6 (R$) |
+|---|---|---|---|
+| II | Indústria | 4,50% · 7,80% · 10,00% · 11,20% · 14,70% · 30,00% | 0 · 5.940 · 13.860 · 22.500 · 85.500 · 720.000 (faixas 4 a 6: conferir) |
+| III | Locação de bens móveis e prestação de serviços não relacionados no § 5º-C do art. 18 (e os do § 5º-I com fator R igual ou superior a 28%) | 6,00% · 11,20% · 13,50% · 16,00% · 21,00% · 33,00% | 0 · 9.360 · 17.640 · 35.640 · 125.640 · 648.000 (faixas 4 a 6: conferir) |
+| IV | Serviços relacionados no art. 18, § 5º-C | 4,50% · 9,00% · 10,20% · 14,00% · 22,00% · 33,00% | 0 · 8.100 · 12.420 · 39.780 · 183.780 · 828.000 (faixas 4 a 6: conferir) |
+| V | Serviços do art. 18, § 5º-I (com fator R) | 15,50% · 18,00% · 19,50% · 20,50% · 23,00% · 30,50% | 0 · 4.500 · 9.900 · 17.100 · 62.100 · 540.000 (faixas 4 a 6: conferir) |
+
+(A primeira parcela listada em cada linha é a da faixa 1, sem dedução.) O enquadramento da atividade no anexo correto depende da descrição da atividade e do CNAE; **não presuma o anexo**.
+
+**Observação:** o texto da Estante traz a remissão "Vide Lei Complementar nº 214, de 2025" nos anexos. Para períodos a partir da transição da reforma, confira as alterações nas regras do Simples.
+
+## 2. Lucro Presumido
+
+Fonte: `Decreto 9.580-2018 (Regulamento do Imposto de Renda)` e `Lei 9.430-1996`, em `9-Tributario/1-Tributação/`.
+
+- **Apuração trimestral** do IRPJ e da CSLL (RIR, art. 591 e seguintes).
+- **Percentual de presunção:** 8% sobre a receita bruta como regra geral (RIR, art. 591; art. 220 para a estimativa mensal). Exceções do art. 220, § 1º: 1,6% para revenda de combustíveis derivados de petróleo, álcool carburante e gás natural; 16% para transporte de passageiros e para as atividades financeiras ali listadas. O percentual de 32% para serviços em geral aparece no mesmo artigo; **confira a lista de atividades no texto antes de enquadrar**.
+- **IRPJ:** alíquota de 15% sobre a base; **adicional de 10%** sobre a parcela da base que exceder o limite do período (R$ 20.000 por mês, ou R$ 60.000 por trimestre). Fonte do mensal: RIR, art. 225, parágrafo único (aplicado à estimativa); confirme o limite trimestral no RIR.
+- **CSLL:** 9% sobre a base presumida (o percentual de presunção da CSLL difere do do IRPJ em algumas atividades; confira).
+- **PIS e Cofins cumulativos (0,65% e 3,00%):** essas alíquotas vêm da Lei 9.718/1998 e da legislação do PIS e da Cofins cumulativos, **que não estão na Estante**. Marque `VERIFICAR VIGÊNCIA`.
+- **Limite de opção:** o regime de lucro real é obrigatório quando a receita total do ano-calendário anterior for superior a **R$ 78.000.000** (ou proporcional ao número de meses, se inferior a 12) e nas demais hipóteses do art. 257 do RIR (por exemplo, instituições financeiras). Isso é **obrigatoriedade**, não critério de escolha.
+
+## 3. Lucro Real
+
+- **Base:** lucro líquido ajustado por adições, exclusões e compensações (RIR). Projetar adições e exclusões exige conhecimento da empresa; sem esses dados, trate a base como premissa e rotule.
+- **Adicional de 10%:** sobre a parcela da base que exceder R$ 20.000 por mês (RIR, art. 225, parágrafo único, quanto à estimativa mensal).
+- **Prejuízo fiscal:** a compensação é limitada a **30% do lucro líquido ajustado** (RIR, art. 580). Isso afeta a projeção de imposto quando há prejuízo acumulado.
+- **PIS e Cofins não cumulativos:** 1,65% (Lei 10.637/2002, art. 2º) e 7,6% (Lei 10.833/2003, art. 2º), com créditos conforme as leis. Os textos da Estante trazem a remissão à LC 214/2025; confira os efeitos para o período.
+- **Créditos:** a lista de despesas que geram crédito está nas Leis 10.637 e 10.833 (arts. 3º); use-a em vez de listas de memória.
+
+## 4. ISS e ICMS
+
+- **ISS:** alíquota máxima de 5% (LC 116, art. 8º, II) e **mínima de 2%** (art. 8º-A, incluído pela LC 157/2016). A alíquota efetiva depende do município e do item da lista de serviços.
+- **ICMS:** competência estadual (LC 87/1996, a Lei Kandir). A Estante **não** traz tabela de alíquotas por UF e produto. **Não use faixa de memória**; peça a alíquota do RICMS da UF ou confira a norma estadual.
+
+## 5. Reforma tributária do consumo (EC 132/2023 e LC 214/2025)
+
+Fontes: `9-Tributario/3-Reforma Tributária/` (EC 132, LC 214 no texto consolidado da Estante, que inclui alterações da LC 227/2026, e o guia do CRCSP).
+
+**Tributos novos:** IBS (estados e municípios, ICMS e ISS), CBS (União, PIS e Cofins) e Imposto Seletivo. A EC 132 cria os arts. 156-A (IBS) e 195, V (CBS).
+
+**Cronograma conferido nos textos:**
+
+| Período | O que ocorre | Fonte |
 |---|---|---|
-| Revenda de combustíveis | 1,6% | 12% |
-| Comércio em geral | 8,0% | 12% |
-| Indústria | 8,0% | 12% |
-| Transporte de cargas | 8,0% | 12% |
-| Serviços hospitalares | 8,0% | 12% |
-| Transporte de passageiros | 16,0% | 12% |
-| Serviços em geral | 32,0% | 32% |
-| Intermediação de negócios | 32,0% | 32% |
-| Administração/locação de bens | 32,0% | 32% |
+| 2026 | IBS a 0,1% (alíquota estadual) e CBS a 0,9%. O valor recolhido é **compensado** com o PIS e a Cofins devidos no mesmo período; se não houver débito suficiente, pode ser compensado com outro tributo federal ou ressarcido | EC 132, art. 125 e § 1º (ADCT); LC 214, arts. 343, 346 e 348 |
+| A partir de 2027 | Cobrança da CBS e do Imposto Seletivo; **extinção do PIS e da Cofins** (desde que instituída a CBS) | EC 132, art. 126 (ADCT) |
+| 2027 e 2028 | IBS a 0,05% estadual e 0,05% municipal; CBS com alíquota reduzida em 0,1 ponto percentual em relação à fixada | EC 132, art. 127; LC 214, arts. 344 e 347 |
+| 2029 a 2032 | ICMS e ISS cobrados em 9/10, 8/10, 7/10 e 6/10 das alíquotas das respectivas legislações, enquanto o IBS cresce | EC 132, art. 128 |
+| A partir de 2033 | **Extinção do ICMS e do ISS** | EC 132, art. 129 |
 
-### IRPJ
-- Alíquota: 15% sobre base de presunção
-- Adicional: 10% sobre a parcela do lucro presumido que exceder R$ 20.000/mês
+**Alíquotas de referência:** são fixadas por **resolução do Senado Federal** (EC 132, art. 130; LC 214, arts. 349 e seguintes, com cálculos por ano nos arts. 352 a 365). **Esta referência não traz alíquota estimada de CBS ou IBS.** Para projeção, use **premissa do usuário, rotulada como premissa**, ou a alíquota efetivamente fixada na norma vigente (`VERIFICAR VIGÊNCIA`). Em projeções de cenário, modele a alíquota como variável de sensibilidade.
 
-### CSLL
-- Alíquota: 9% sobre base de presunção
+**Simples Nacional na reforma (LC 214, arts. 41 e 47):**
+- O optante pelo Simples **pode exercer a opção** de apurar e recolher o IBS e a CBS **pelo regime regular** (art. 41, § 3º; a opção segue a LC 123, § 4º).
+- Quem compra de optante do Simples e está no regime regular pode apropriar crédito correspondente ao valor desses tributos **"em montante equivalente ao devido por meio desse regime"** (art. 47). Na prática, o crédito do adquirente depende do que o optante recolhe. Avalie o efeito competitivo nas vendas B2B (a versão anterior desta referência afirmava, de forma imprecisa, que o optante "perde crédito").
 
-### PIS (regime cumulativo)
-- Alíquota: 0,65% sobre Receita Bruta
+**Split payment:** a LC 214 trata do recolhimento na liquidação financeira da operação (arts. 31 a 35, com referência à disponibilidade do mecanismo). Confirme a data e as regras vigentes no regulamento antes de modelar efeito no caixa.
 
-### COFINS (regime cumulativo)
-- Alíquota: 3,00% sobre Receita Bruta
+**Fonte contábil:** guia do CRCSP sobre contabilização da CBS e do IBS (`Reforma Tributária, Contabilização da CBS e IBS`).
 
-### ISS
-- Varia de 2% a 5% conforme município e serviço (LC 116/2003)
-- Alíquota mínima: 2% (veda guerra fiscal)
+## 6. Exemplos numéricos (fictícios, só para validar a mecânica)
 
-### ICMS
-- Varia de 7% a 25% conforme UF e produto (consultar RICMS estadual)
-- DIFAL: diferença de alíquota entre estados (operações interestaduais B2C)
+**Simples, Anexo I (comércio):** RBT12 = R$ 1.000.000 (faixa 4: alíquota nominal 10,70%, parcela a deduzir R$ 22.500). Alíquota efetiva = (1.000.000 × 10,70% − 22.500) / 1.000.000 = **8,45%**. Receita do mês de R$ 100.000 → DAS de **R$ 8.450**.
 
----
+**Lucro Presumido, comércio, 1 trimestre com receita de R$ 3.000.000 (premissas):**
+- Base do IRPJ = 3.000.000 × 8% = 240.000. IRPJ = 15% × 240.000 = **36.000**.
+- Adicional = 10% × (240.000 − 60.000) = **18.000** (limite de R$ 60.000 por trimestre, a confirmar no RIR).
+- Base da CSLL = 3.000.000 × 12% = 360.000 (percentual de presunção da CSLL conforme a atividade). CSLL = 9% × 360.000 = **32.400**.
+- PIS e Cofins cumulativos (0,65% e 3%): 19.500 e 90.000, com `VERIFICAR VIGÊNCIA`.
 
-## Lucro Real — Referências
+## 7. Efeitos na projeção
 
-### IRPJ
-- 15% sobre Lucro Real (LAIR + adições − exclusões)
-- Adicional: 10% sobre LAIR > R$ 20.000/mês
+- Imposto sobre **faturamento** (DAS, PIS, Cofins, ISS, ICMS, IBS e CBS) entra nas **deduções da receita**. Imposto sobre **lucro** (IRPJ e CSLL) fica abaixo do resultado. Não misture.
+- No Simples, o DAS é único e inclui IRPJ e CSLL; para a DRE, informe como é feita a segregação.
+- Alíquotas e prazos mudam: documente a data de referência da regra usada.
 
-### CSLL
-- 9% sobre Lucro Real (15% para instituições financeiras)
+## 8. O que esta referência NÃO traz (de propósito)
 
-### PIS (não cumulativo)
-- Alíquota: 1,65% sobre Receita Bruta
-- Créditos permitidos: insumos, energia elétrica, aluguéis de PJ, depreciação de ativos
-- Crédito líquido típico: desconto de 1,65% sobre compras de insumos com PIS na nota
-
-### COFINS (não cumulativo)
-- Alíquota: 7,60% sobre Receita Bruta
-- Créditos permitidos: mesmos critérios do PIS
-- Crédito líquido típico: desconto de 7,6% sobre compras de insumos com COFINS na nota
-
-### Estimativa mensal IRPJ/CSLL (antecipação)
-- IRPJ estimado = Receita Bruta × 8% (ou % da atividade) × 15% + adicional
-- Ou: IRPJ real com balanço de suspensão/redução
-
----
-
-## Reforma Tributária — EC 132/2023 + LC 214/2025
-
-### Novos tributos
-
-| Tributo | Tipo | Substitui | Competência |
-|---|---|---|---|
-| CBS — Contribuição sobre Bens e Serviços | IVA Federal | PIS + COFINS | União |
-| IBS — Imposto sobre Bens e Serviços | IVA Subnacional | ICMS + ISS | Estados + Municípios |
-| IS — Imposto Seletivo | Específico | — (novo) | União |
-
-### Alíquotas de referência (estimativas — alíquota de equilíbrio em definição)
-- CBS: ~8,8%
-- IBS: ~17,7% (média ponderada estados/municípios)
-- IS: variável — 0% (bens essenciais) até 100% (cigarros)
-- **Carga total IVA dual estimada: ~26,5%** (com mecanismos de cashback e isenções)
-
-### Cronograma de transição
-
-| Período | O que acontece |
-|---|---|
-| 2026 | CBS e IBS entram em vigor com alíquotas de teste (0,9% CBS + 0,1% IBS) |
-| 2027 | PIS/COFINS extintos; CBS plena; IBS cresce gradualmente |
-| 2027–2032 | Redução gradual de ICMS (20% a.a.) e ISS (20% a.a.) |
-| 2033 | Extinção total: PIS, COFINS, ICMS, ISS e IPI (parcial) |
-| 2033 | IBS pleno substituindo ICMS e ISS completamente |
-
-### Split Payment (2026+)
-- Imposto recolhido automaticamente no momento da transação financeira
-- Intermediação por bancos e maquininhas de cartão
-- **Impacto no fluxo de caixa:** elimina prazo de recolhimento atual (DAS, DARF)
-- Empresas com Lucro Real: modelar antecipação de caixa de impostos
-
-### Simples Nacional na Reforma
-- Empresas do Simples **NÃO** recolhem CBS/IBS separadamente (DAS unificado mantido)
-- Porém, perdem direito a crédito de IBS/CBS nas operações com não-optantes
-- Pode haver perda de competitividade em cadeias B2B
-
----
-
-## NCMs Frequentes — Referência Rápida
-
-| Produto | NCM | IPI | Observações |
-|---|---|---|---|
-| Medicamentos (uso humano) | 3004.XX.XX | 0% | Monofásico PIS/COFINS; ST em vários estados |
-| Cosméticos | 3304.XX.XX a 3307.XX.XX | 7–20% | ST frequente |
-| Alimentos processados | 1601–2106 | 0% | PIS/COFINS monofásico para alguns |
-| Calçados | 6401–6405 | 0% | ST em vários estados |
-| Vestuário | 6101–6217 | 0% | ICMS normal; verificar benefícios estaduais |
-| Eletrodomésticos linha branca | 8450.XX.XX | 4–15% | ST; ZFM pode isentar |
-| Smartphones | 8517.12.31 | 0% (PPB) | ZFM; ST; monofásico PIS/COFINS |
-| Software (box) | 8523.49.90 | 0% | Discussão ISS vs ICMS |
-| Serviços de TI | 8473 / NCM não aplicável | — | ISS; verificar lista LC 116 |
-| Combustíveis | 2710.XX.XX | Variável | Monofásico; CIDE; ICMS ST |
-
-> **Aviso:** NCM deve ser sempre validado na TIPI (Tabela de Incidência do IPI) vigente e
-> confirmado com contador. Classificação fiscal incorreta gera multa de 75% a 150% do imposto.
-
----
-
-## CFOPs Essenciais
-
-### Saídas (vendas)
-| CFOP | Descrição | Obs |
-|---|---|---|
-| 5.101 / 6.101 | Venda de produção do estabelecimento | Indústria |
-| 5.102 / 6.102 | Venda de mercadoria adquirida para revenda | Comércio |
-| 5.405 | Venda de mercadoria com ST (já retido pelo remetente) | ST |
-| 5.501 / 6.501 | Remessa para industrialização por encomenda | Beneficiamento |
-| 5.922 / 6.922 | Lançamento efetuado a título de simples faturamento | Faturamento futuro |
-| 7.101 / 7.102 | Exportação direta | Imune de ICMS e IPI |
-
-### Entradas (compras)
-| CFOP | Descrição | Obs |
-|---|---|---|
-| 1.101 / 2.101 | Compra de insumo para industrialização | Lucro Real: gera crédito |
-| 1.102 / 2.102 | Compra de mercadoria para revenda | Crédito ICMS + PIS/COFINS LP/LR |
-| 1.411 / 2.411 | Devolução de venda | Cancela NF de saída |
-| 1.556 / 2.556 | Compra de ativo imobilizado | Crédito CIAP (ICMS) |
-| 1.603 | Resíduo sólido — NF simplificada | Compra de sucata |
+- **NCM, TIPI e IPI:** a Estante não tem a TIPI. Não indique NCM nem alíquota de IPI de memória.
+- **CFOP:** a Estante não tem a tabela oficial. Não indique CFOP de memória (a versão anterior listava códigos que não puderam ser conferidos).
+- **ICMS por UF, substituição tributária, DIFAL e benefícios estaduais:** consulte a norma estadual.
+- **Lei 9.718/1998 e Lei 9.249/1995:** não estão na Estante; as alíquotas de PIS e Cofins cumulativos e os percentuais complementares ficam `VERIFICAR VIGÊNCIA` (o RIR traz referências a elas).
+- **Estimativas de alíquota da reforma:** não há.
+- Veja também `lacunas-da-estante.md` do Controller Master.

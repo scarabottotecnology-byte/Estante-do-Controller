@@ -1,0 +1,128 @@
+{
+  "skill": "mestre-projecao-financeira",
+  "version_note": "Casos sintéticos criados em 06/10/2026. Números fictícios; respostas conferidas em Python. Fatos tributários conferidos nas leis da Estante (9-Tributario).",
+  "how_to_use": "Envie o 'input' sem dar a resposta. Um caso passa se todos os itens de 'deve' ocorrerem e nenhum de 'nao_deve' ocorrer.",
+  "cases": [
+    {
+      "id": "P01-simples-anexo-i",
+      "input": "Empresa comercial no Simples Nacional, Anexo I confirmado. RBT12 de R$ 1.000.000 e receita do mês de R$ 100.000. Qual o DAS?",
+      "deve": [
+        "Identificar a faixa 4 (RBT12 de 720.000,01 a 1.800.000): alíquota nominal de 10,70% e parcela a deduzir de R$ 22.500",
+        "Alíquota efetiva de 8,45%",
+        "DAS de R$ 8.450",
+        "Mostrar a fórmula (RBT12 × alíquota nominal − parcela) / RBT12"
+      ],
+      "nao_deve": ["Aplicar a alíquota nominal de 10,70% sobre a receita do mês"]
+    },
+    {
+      "id": "P02-lucro-presumido-trimestre",
+      "input": "Comércio no Lucro Presumido com receita de R$ 3.000.000 no trimestre. Calcule IRPJ e CSLL.",
+      "deve": [
+        "Base do IRPJ de R$ 240.000 (8%) e IRPJ de R$ 36.000",
+        "Adicional de R$ 18.000 (10% sobre a base acima de R$ 60.000 no trimestre), sinalizando para confirmar o limite no RIR",
+        "CSLL de R$ 32.400 (base de 12% e alíquota de 9%), com a observação de que o percentual de presunção da CSLL depende da atividade",
+        "Marcar PIS e Cofins cumulativos como VERIFICAR VIGÊNCIA, pois a Lei 9.718 não está na Estante"
+      ],
+      "nao_deve": ["Afirmar PIS e Cofins sem ressalva de vigência"]
+    },
+    {
+      "id": "P03-cronograma-da-reforma",
+      "input": "Li que o PIS e a Cofins só acabam em 2033. Qual será a alíquota de IBS em 2028?",
+      "deve": [
+        "Corrigir: PIS e Cofins são extintos a partir de 2027 (EC 132, art. 126); o que se extingue em 2033 é o ICMS e o ISS (art. 129)",
+        "Informar o IBS de 2027 e 2028: 0,05% estadual mais 0,05% municipal (EC 132, art. 127; LC 214, art. 344), e a CBS reduzida em 0,1 ponto percentual",
+        "Dizer que as alíquotas de referência são fixadas por resolução do Senado e que não estima CBS ou IBS plenos",
+        "Sugerir modelar a alíquota como premissa rotulada e variável de sensibilidade"
+      ],
+      "nao_deve": ["Afirmar alíquota plena de CBS ou IBS como oficial", "Dizer que o ICMS cai 20% ao ano de 2027 a 2032"]
+    },
+    {
+      "id": "P04-ncm-sem-codigo-de-memoria",
+      "input": "Qual o NCM e a alíquota de IPI de um xampu?",
+      "deve": [
+        "Não indicar código de NCM nem alíquota de IPI de memória",
+        "Orientar a consultar a TIPI vigente",
+        "Pedir a descrição completa do produto e explicar o que muda no cálculo (monofásico, substituição tributária)",
+        "Recomendar validação por contador ou tributarista"
+      ],
+      "nao_deve": ["Citar um NCM específico", "Citar uma alíquota de IPI"]
+    },
+    {
+      "id": "P05-backtest",
+      "input": "Testei um método nos últimos 4 meses. Real: 100, 110, 120, 130. Projetado: 98, 115, 118, 140. Está bom?",
+      "deve": [
+        "MAPE de cerca de 3,98%",
+        "Viés de cerca de +2,4% (superestima)",
+        "Pedir a comparação com o método ingênuo antes de concluir",
+        "Observar o maior erro no último período (7,7%)"
+      ],
+      "nao_deve": ["Concluir que o método é bom sem comparar com o ingênuo"]
+    },
+    {
+      "id": "P06-indice-sazonal",
+      "input": "Receita trimestral. Ano 1: 100, 120, 140, 140. Ano 2: 110, 132, 154, 154. Projete o ano 3 assumindo média anual 10% maior que a do ano 2.",
+      "deve": [
+        "Índices sazonais de 0,80; 0,96; 1,12 e 1,12 (soma 4,0)",
+        "Média do ano 3 de 151,25",
+        "Trimestres de 121; 145,2; 169,4 e 169,4, com total de 605",
+        "Declarar o crescimento de 10% como premissa do usuário"
+      ],
+      "nao_deve": ["Calcular o índice dividindo pela média de apenas um ano"]
+    },
+    {
+      "id": "P07-fator-r",
+      "input": "Empresa de serviços no Simples, atividade do § 5º-I do art. 18. Nos 12 meses anteriores: receita de R$ 1.000.000 e folha de salários de R$ 300.000. E se a folha fosse R$ 250.000?",
+      "deve": [
+        "Fator R de 30% (maior ou igual a 28%): tributação pelo Anexo III",
+        "Com folha de R$ 250.000, fator R de 25% (menor que 28%): Anexo V",
+        "Citar o art. 18, §§ 5º-J e 5º-M da LC 123",
+        "Pedir a confirmação da atividade e do CNAE"
+      ],
+      "nao_deve": ["Presumir o anexo sem confirmar a atividade"]
+    },
+    {
+      "id": "P08-cenarios-por-drivers",
+      "input": "Faça os cenários otimista e pessimista aplicando +15% e −15% em todas as linhas da projeção.",
+      "deve": [
+        "Explicar que um fator único trata custos fixos como variáveis",
+        "Propor cenários por drivers (volume, preço, custo) e pedir a justificativa das amplitudes",
+        "Se avançar com 15% provisório, rotulá-lo como PREMISSA a confirmar",
+        "Mostrar um exemplo por drivers (por exemplo, base 10.000 × R$ 100 = R$ 1.000.000; otimista 10.500 × 102 = R$ 1.071.000; pessimista 9.200 × 100 = R$ 920.000)"
+      ],
+      "nao_deve": ["Aplicar o fator único silenciosamente"]
+    },
+    {
+      "id": "P09-escolha-de-regime-sem-dados",
+      "input": "Faturamos R$ 20 milhões por ano. Qual regime é melhor, Presumido ou Real?",
+      "deve": [
+        "Dizer que a escolha é uma comparação e pedir os dados que faltam (margem, atividade, créditos de PIS e Cofins, adições e exclusões, folha), em até 3 perguntas",
+        "Informar que o Simples não é elegível acima de R$ 4,8 milhões (LC 123, art. 3º)",
+        "Informar que o lucro real é obrigatório, entre outras hipóteses, com receita do ano anterior acima de R$ 78 milhões (RIR, art. 257)",
+        "Não recomendar um regime de forma definitiva sem os dados; declarar as premissas se fizer uma comparação indicativa",
+        "Recomendar validação por contador"
+      ],
+      "nao_deve": ["Recomendar um regime só pelo tamanho do faturamento"]
+    },
+    {
+      "id": "P10-excesso-do-limite-do-simples",
+      "input": "A receita anual projetada de uma empresa do Simples é de R$ 5.400.000. O que acontece?",
+      "deve": [
+        "Informar que ultrapassa o limite de R$ 4.800.000",
+        "Calcular que 20% do limite é R$ 960.000 (excesso até R$ 5.760.000) e que R$ 5.400.000 está dentro dessa margem: exclusão com efeitos no ano-calendário seguinte (LC 123, art. 3º, § 9º-A)",
+        "Mandar conferir os §§ 9º a 13 do art. 3º, o ano de início de atividade e o sublimite de ICMS e ISS",
+        "Sugerir modelar a mudança de regime no ano seguinte"
+      ],
+      "nao_deve": ["Afirmar exclusão imediata e retroativa para um excesso de até 20%"]
+    },
+    {
+      "id": "P11-integracao-com-caixa-e-balanco",
+      "input": "Além da DRE projetada, quero a projeção de caixa e do balanço, fechando.",
+      "deve": [
+        "Dizer que caixa e balanço integrados são do mestre-modelagem-financeira",
+        "Entregar a DRE projetada e listar as premissas necessárias (prazos de recebimento, estoque e pagamento, CAPEX, financiamento, distribuição de lucros)",
+        "Propor acionar a skill de modelagem com esses insumos"
+      ],
+      "nao_deve": ["Montar um balanço forçando o fechamento"]
+    }
+  ]
+}

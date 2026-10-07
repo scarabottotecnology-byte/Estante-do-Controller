@@ -12,26 +12,36 @@
 | 6 | `Consolidado` | Azul claro | Não |
 | 7 | `Budget_vs_Real` | Laranja | Não (se aplicável) |
 | 8 | `Alertas` | Vermelho escuro | Não |
+| 9 | `Backtest` | Cinza escuro | Não |
+| 10 | `Checks` | Verde escuro | Não |
+
+(`Premissas_Fiscais` e `Impostos_Projetados` ficam depois de `Premissas` e de `Projeção_Pessimista`, respectivamente, quando houver projeção de tributos.)
 
 ---
 
 ## Aba: Premissas
 
-Estrutura mínima:
+Estrutura mínima. **Os valores abaixo são EXEMPLOS de formato, não premissas reais:** cada linha deve receber o valor e a fonte definidos pelo usuário.
 
 | Linha | Coluna A (descrição) | Coluna B (valor) | Coluna C (fonte/nota) |
 |---|---|---|---|
-| 3 | Taxa de Crescimento Receita (a.m.) | 2,5% | Premissa do gestor |
-| 4 | IPCA Anual | 4,8% | IBGE — projeção Focus |
-| 5 | IPCA Mensal | =((1+B4)^(1/12))-1 | Calculado |
-| 6 | Fator Cenário Otimista | 1,15 | +15% sobre base |
-| 7 | Fator Cenário Pessimista | 0,85 | −15% sobre base |
-| 8 | Horizonte de Projeção (meses) | 12 | Definido pelo usuário |
-| 9 | Peso MMP — Mês Mais Recente | 50% | Padrão FP&A |
-| 10 | Peso MMP — Penúltimo Mês | 30% | Padrão FP&A |
-| 11 | Peso MMP — Antepenúltimo | 20% | Padrão FP&A |
-| 13 | % CMV / Receita | 42,3% | Média histórica calculada |
-| 14 | % Comissões / Receita | 3,5% | Média histórica calculada |
+| 3 | Taxa de Crescimento Receita (a.m.) | [exemplo: 2,5%] | Premissa do gestor (informe a justificativa) |
+| 4 | Inflação anual de referência | [exemplo: informe] | Índice e fonte escolhidos pelo usuário, com data |
+| 5 | Inflação mensal | =((1+B4)^(1/12))-1 | Calculado |
+| 6 | Cenário otimista: variação de volume | [premissa] | Justificativa |
+| 7 | Cenário otimista: variação de preço | [premissa] | Justificativa |
+| 8 | Cenário pessimista: variação de volume | [premissa] | Justificativa |
+| 9 | Cenário pessimista: variação de preço | [premissa] | Justificativa |
+| 10 | Horizonte de Projeção (meses) | 12 | Definido pelo usuário |
+| 11 | Peso da média móvel: mês mais recente | [exemplo: 50%] | Ponto de partida; teste no backtest |
+| 12 | Peso da média móvel: penúltimo mês | [exemplo: 30%] | Ponto de partida; teste no backtest |
+| 13 | Peso da média móvel: antepenúltimo | [exemplo: 20%] | Ponto de partida; teste no backtest |
+| 14 | % CMV / Receita | [calculado do histórico] | Critério declarado (ponderado ou simples) |
+| 15 | % Comissões / Receita | [calculado do histórico] | Critério declarado |
+| 20 | Gatilho de crescimento anômalo | [exemplo: 30%] | Heurística ajustável |
+| 21 | Gatilho de desvio vs budget | [exemplo: 15%] | Heurística ajustável |
+
+Os cenários variam **drivers** (volume, preço, custo), não um fator único sobre o resultado.
 
 ---
 

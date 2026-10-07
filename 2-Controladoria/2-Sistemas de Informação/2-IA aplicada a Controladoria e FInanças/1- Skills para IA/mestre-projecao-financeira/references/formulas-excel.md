@@ -1,5 +1,7 @@
 # Referência: Fórmulas Excel para Projeção Financeira
 
+> Os limiares citados aqui (R², coeficiente de variação, pesos) são **heurísticas**. **Valide por backtest** (veja `metodos-de-projecao.md`). Proteja divisões com `IFERROR` ou `IF` para evitar `#DIV/0!`.
+
 ## FORECAST.LINEAR — Tendência Linear
 
 ```excel
@@ -16,7 +18,7 @@
 =FORECAST.LINEAR(13, Histórico!B5:M5, {1,2,3,4,5,6,7,8,9,10,11,12})
 ```
 
-**Quando usar:** Tendência linear clara, R² > 0,85, dados sem sazonalidade relevante.
+**Quando usar:** tendência linear clara e dados sem sazonalidade relevante. Como ponto de partida (heurística), R² alto; confirme com backtest.
 
 ---
 
@@ -38,18 +40,28 @@
 
 ## Índice Sazonal × Tendência
 
-### Passo 1 — Calcular o índice sazonal histórico
+### Passo 1 — Índice sazonal de cada mês
+Para cada mês, calcule a razão entre o valor do mês e a **média do respectivo ano**, e tire a média dessas razões entre os anos:
 ```excel
-=AVERAGE(B5,N5,Z5)/AVERAGE(Histórico!$B5:$M5)
+=AVERAGE(B5/AVERAGE($B5:$M5), N5/AVERAGE($N5:$Y5))
 ```
-*(Média de todos os Janeiros ÷ Média geral = Índice de Janeiro)*
+*(exemplo para o mês de janeiro com 2 anos de histórico: colunas B a M no ano 1 e N a Y no ano 2)*
 
-### Passo 2 — Aplicar índice sobre a tendência projetada
+Confira que a **soma dos 12 índices é 12** (ou a média é 1). Se não for, normalize dividindo cada índice pela média dos índices.
+
+> **Erro comum:** dividir a média dos janeiros pela média de **apenas um** ano mistura tendência com sazonalidade e distorce o índice.
+
+### Passo 2 — Projetar com tendência dessazonalizada
+1. Dessazonalize o histórico: valor do mês ÷ índice do mês.
+2. Ajuste a tendência sobre a série dessazonalizada (`FORECAST.LINEAR` ou `TREND`).
+3. Ressazonalize: tendência projetada × índice do mês projetado.
+
 ```excel
-=FORECAST.LINEAR(13, Histórico!$B5:$M5, {1,...,12}) * IndiceJaneiro
+=FORECAST.LINEAR(25, SérieDessazonalizada, Períodos) * IndiceMes
 ```
+*(Aplicar o índice sobre uma tendência ajustada nos dados brutos conta a sazonalidade duas vezes.)*
 
-**Quando usar:** Sazonalidade evidente (coef. de variação > 15%), histórico com pelo menos 24 meses.
+**Quando usar:** sazonalidade evidente e histórico com pelo menos dois ciclos completos (por exemplo, 24 meses).
 
 ---
 
@@ -66,11 +78,11 @@
 
 ## % Fixo sobre Receita (custos variáveis)
 
-### Calcular % médio histórico:
+### Calcular % histórico:
 ```excel
-=AVERAGE(B6:M6/B5:M5)
+=SUM(B6:M6)/SUM(B5:M5)
 ```
-*(Linha de custo ÷ Receita, média dos 12 meses)*
+*(Custo total ÷ receita total dos 12 meses: média ponderada pela receita. A média simples dos percentuais mensais, `=AVERAGE(B6:M6/B5:M5)`, exige fórmula matricial no Excel antigo e pesa igual meses grandes e pequenos. Escolha e declare o critério.)*
 
 ### Aplicar sobre receita projetada:
 ```excel
@@ -87,7 +99,7 @@
 ```excel
 =Histórico!$M10 * (1 + Premissas!$B$5)
 ```
-*(Último valor real × (1 + IPCA))*
+*(Último valor real × (1 + índice do período). Confirme se o índice em Premissas é mensal ou anual.)*
 
 **Para reajuste acumulado em projeções longas:**
 ```excel
@@ -105,8 +117,7 @@
 =RSQ(Histórico!B5:M5, {1,2,3,4,5,6,7,8,9,10,11,12})
 ```
 - Retorna R² (0 a 1)
-- R² > 0,85 → uso de regressão linear justificado
-- R² < 0,70 → preferir média móvel ou solicitar premissa manual
+- R² alto indica boa aderência da reta ao **passado**, mas não garante boa previsão. Use como triagem (por exemplo, R² abaixo de 0,70 sugere testar média móvel ou pedir premissa manual) e **confirme por backtest**
 
 ---
 
@@ -114,15 +125,16 @@
 
 ### Alerta de crescimento anômalo:
 ```excel
-=IF(ABS(C5/B5-1)>0.3, "⚠️ CRESCIMENTO ANÔMALO: "&TEXT(C5/B5-1,"0%"), "OK")
+=IFERROR(IF(ABS(C5/B5-1)>Premissas!$B$20, "⚠️ CRESCIMENTO ANÔMALO: "&TEXT(C5/B5-1,"0%"), "OK"), "n/d")
 ```
 
 ### Alerta de desvio vs budget:
 ```excel
-=IF(ABS(Projeção_Base!B5/Budget!B5-1)>0.15, 
+=IFERROR(IF(ABS(Projeção_Base!B5/Budget!B5-1)>Premissas!$B$21,
    "⚠️ DESVIO "&TEXT(Projeção_Base!B5/Budget!B5-1,"0%")&" vs Budget",
-   "✓")
+   "✓"), "n/d")
 ```
+*(Os gatilhos ficam em `Premissas!B20` e `B21`; os valores iniciais, como 30% e 15%, são heurísticas ajustáveis.)*
 
 ### Desvio absoluto e %:
 ```excel

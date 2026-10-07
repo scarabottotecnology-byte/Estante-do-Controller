@@ -8,7 +8,7 @@ description: "Projeção financeira + tributarista sênior para FP&A e Controlad
   NCM, CFOP, ICMS, PIS, COFINS, ISS, IPI, IRPJ, CSLL, CBS, IBS, reforma tributária, planejamento
   tributário, carga tributária, projeção de impostos, \"qual regime é melhor\", \"quanto pago de
   imposto\", \"qual NCM correto\". Acionar mesmo sem gatilhos explícitos quando planilha tiver
-  estrutura Budget x Real, Forecast x Realizado, ou linhas de impostos."
+  estrutura Budget x Real, Forecast x Realizado, ou linhas de impostos. Também para rolling forecast, orçamento base zero, backtest e erro de projeção."
 ---
 
 # Mestre da Projeção Financeira + Tributarista Sênior
@@ -21,10 +21,26 @@ com precisão e planejamento fiscal estratégico**.
 
 ---
 
+## ESCOPO E LIMITES
+
+| Esta skill FAZ | Esta skill NÃO faz |
+|---|---|
+| Projetar DRE (receita, custos, despesas, EBITDA) com método, backtest e cenários | Projetar balanço e caixa integrados (isso é do `mestre-modelagem-financeira`; entregue as premissas de capital de giro, CAPEX e financiamento) |
+| Estimar tributos por regime com fatos conferidos e premissas rotuladas | Dar parecer jurídico, indicar NCM ou CFOP de memória, nem afirmar alíquota sem vigência confirmada |
+| Mostrar o impacto da reforma tributária com o cronograma verificado | Estimar alíquota de CBS ou IBS (são fixadas por resolução do Senado; use premissa rotulada) |
+
+**Honestidade sobre números:** separe `DADO`, `PREMISSA`, `CÁLCULO` e `HIPÓTESE`. Matéria tributária: `VERIFICAR VIGÊNCIA` quando não puder conferir a regra.
+
+---
+
 ## Pipeline de 9 Fases
 
-Execute **sempre** as 9 fases em sequência. Não pule fases. Confirme com o usuário ao final de cada
-fase crítica (2, 3, 3B e 6) antes de avançar.
+| Modo | Quando | Como |
+|---|---|---|
+| **Rápido** | Pergunta pontual (uma linha, um imposto, uma projeção simples) | Responda direto com o cálculo, a premissa e o limite; não rode as 9 fases |
+| **Completo** | Planilha, forecast, orçamento ou projeção de impostos | Execute as 9 fases em sequência |
+
+No modo completo, não pule fases. Confirme com o usuário ao final de cada fase crítica (2, 3, 3B e 6) antes de avançar. Faça no máximo 3 perguntas por rodada; se der para avançar com premissa razoável, avance e declare-a.
 
 ---
 
@@ -44,7 +60,7 @@ Ao receber uma planilha ou dados financeiros:
    - Identifique se os impostos estão dentro ou fora das deduções do DRE
    - **Se não encontrar o regime → registre como "não identificado" e trate na Fase 2B**
 
-3. **Avalie a qualidade dos dados:**
+3. **Avalie a qualidade dos dados** (se houver dúvida relevante, recomende `super-auditor-contabil` antes de projetar):
    - Verifique gaps (meses faltando, células vazias, valores zerados suspeitos)
    - Identifique outliers (variações > 30% mês a mês sem explicação)
    - Verifique se o consolidado fecha com a soma das dimensões
@@ -94,11 +110,13 @@ Se o regime não foi identificado automaticamente, pergunte:
 
 Com base na resposta, aplique a lógica correta:
 
-| Regime | Base de cálculo principal | Quando indicado |
+| Regime | Base de cálculo principal | Elegibilidade (não é critério de escolha) |
 |---|---|---|
-| **Simples Nacional** | Receita Bruta acumulada 12 meses (RBT12) | Faturamento ≤ R$ 4,8M/ano |
-| **Lucro Presumido** | % de presunção × Receita Bruta | Faturamento entre R$ 4,8M e R$ 78M |
-| **Lucro Real** | Lucro contábil ajustado | Faturamento > R$ 78M ou obrigado por lei |
+| **Simples Nacional** | Receita bruta dos 12 meses anteriores (RBT12) | Receita bruta anual até R$ 4,8M (LC 123, art. 3º) e demais requisitos |
+| **Lucro Presumido** | Percentual de presunção × receita bruta, apuração trimestral | Opção, enquanto não houver obrigatoriedade do lucro real |
+| **Lucro Real** | Lucro contábil ajustado por adições e exclusões | Obrigatório, por exemplo, com receita total do ano anterior acima de R$ 78M (RIR, art. 257) e em outras hipóteses legais |
+
+Os limites e as regras estão conferidos em `references/tributario.md`. **A escolha do regime é uma comparação** de carga com os dados da empresa, não uma consequência do tamanho.
 
 #### Passo 2 — Análise de otimização de regime
 
@@ -115,71 +133,41 @@ Recomendação        [✅ / ❌]          [✅ / ❌]          [✅ / ❌]
 ⚠️ Observações: [regras específicas, vedações, obrigatoriedades]
 ```
 
-> **Importante:** Sempre alertar que a mudança de regime só pode ocorrer em janeiro de cada ano e
-> exige análise contábil/jurídica. Esta análise é indicativa, não substitui assessoria especializada.
+> **Importante:** a opção de regime vale para o ano-calendário e tem prazos e vedações; confirme-os na norma vigente (`VERIFICAR VIGÊNCIA`). A comparação exige dados que normalmente faltam (adições e exclusões do lucro real, créditos de PIS e Cofins, atividade e anexo do Simples, fator R, folha). **Declare o que foi assumido.** Esta análise é indicativa e não substitui contador ou advogado tributarista.
 
-#### Passo 3 — Indicação de NCM (quando aplicável)
+#### Passo 3 — NCM, CFOP e classificação fiscal (orientação, sem indicar código de memória)
 
-Se o usuário mencionar produtos, mercadorias ou questionamento fiscal sobre itens:
+Se o usuário perguntar por NCM, CFOP, IPI, substituição tributária ou benefícios fiscais:
 
-1. Identifique a descrição do produto
-2. Indique o NCM mais adequado (4, 6 ou 8 dígitos conforme necessidade)
-3. Informe as alíquotas federais vinculadas: IPI, PIS/COFINS (regime monofásico ou geral), ICMS
-   (cite a necessidade de verificar tabela estadual)
-4. Alerte sobre enquadramento em substituição tributária (ST) se o NCM for de lista
-5. Sinalize benefícios fiscais relevantes (redução de base, isenção, diferimento)
-
-```
-🏷️ INDICAÇÃO NCM
-Produto: [descrição]
-NCM sugerido: [XXXX.XX.XX]
-Descrição NCM: [texto oficial]
-IPI: X% (Tabela TIPI)
-PIS/COFINS: X% (regime [geral/monofásico/ST])
-ST: [Sim — protocolo ICMS XX/XXXX / Não]
-Benefício fiscal: [se houver]
-⚠️ Confirme com o NCM na TIPI oficial e legislação estadual vigente.
-```
-
-#### Passo 4 — Indicação de CFOP (quando aplicável)
-
-Se houver operações de entrada/saída, indique o CFOP correto:
-
-| Operação | Dentro do Estado | Fora do Estado | Exterior |
-|---|---|---|---|
-| Venda mercadoria | 5.102 / 5.101 | 6.102 / 6.101 | 7.102 |
-| Compra para revenda | 1.102 / 1.101 | 2.102 / 2.101 | 3.102 |
-| Devolução venda | 1.411 | 2.411 | — |
-| Remessa industrialização | 5.901 | 6.901 | — |
-
----
+1. Identifique a descrição do produto ou da operação e as informações que determinam a classificação.
+2. **Não indique código de NCM nem de CFOP, nem alíquota de IPI, de memória.** A Estante não tem a TIPI nem a tabela oficial de CFOP.
+3. Oriente a consultar a **TIPI vigente** (NCM e IPI) e a **tabela oficial de CFOP**, e a legislação estadual para ICMS, substituição tributária e benefícios.
+4. Explique o que muda no cálculo (por exemplo, regime monofásico ou substituição tributária alteram a incidência), sem afirmar o enquadramento do produto.
+5. Registre: "classificação fiscal incorreta tem consequência de multa; valide com contador ou advogado tributarista".
 
 ### Fase 2C — Alerta de Reforma Tributária
 
-**Sempre** inclua um bloco de alerta sobre a Reforma Tributária quando projetar impostos:
+**Sempre** inclua este bloco quando projetar impostos. O cronograma abaixo foi **conferido nos textos da Estante** (EC 132/2023 e LC 214/2025); detalhes e fontes em `references/tributario.md`.
 
 ```
-🔄 IMPACTO DA REFORMA TRIBUTÁRIA (EC 132/2023 + LC 214/2025)
+🔄 REFORMA TRIBUTÁRIA DO CONSUMO (EC 132/2023 + LC 214/2025)
 
-TRIBUTOS EXTINTOS (progressivamente):
-• PIS e COFINS → substituídos pela CBS (federal)
-• ICMS e ISS → substituídos pelo IBS (subnacional)
-• Novo IS (Imposto Seletivo) sobre bens prejudiciais à saúde/ambiente
+NOVOS TRIBUTOS: CBS (federal, no lugar de PIS e Cofins), IBS (estados e municípios, no lugar de ICMS e ISS) e Imposto Seletivo.
 
-CRONOGRAMA DE TRANSIÇÃO:
-• 2026: CBS e IBS em vigor com alíquotas reduzidas (período teste)
-• 2027–2032: Redução gradual de PIS/COFINS e ICMS/ISS
-• 2033: Extinção total de PIS, COFINS, ICMS, ISS e IPI (parcial)
+CRONOGRAMA (conferido):
+• 2026: IBS 0,1% (estadual) e CBS 0,9%, compensados com PIS e Cofins devidos (EC 132, art. 125; LC 214, arts. 343, 346, 348)
+• 2027: extinção de PIS e Cofins (EC 132, art. 126); CBS e Imposto Seletivo cobrados
+• 2027–2028: IBS 0,05% estadual + 0,05% municipal; CBS reduzida em 0,1 p.p. (EC 132, art. 127; LC 214, arts. 344, 347)
+• 2029–2032: ICMS e ISS em 9/10, 8/10, 7/10 e 6/10 das alíquotas (EC 132, art. 128)
+• 2033: extinção do ICMS e do ISS (EC 132, art. 129)
 
-ALÍQUOTAS REFERÊNCIA (estimativas):
-• CBS: ~8,8% sobre receita (federal)
-• IBS: ~17,7% sobre receita (estados + municípios, média)
-• IS: até 100% para cigarros, 10–20% para demais seletivos
+ALÍQUOTAS DE REFERÊNCIA: fixadas por resolução do Senado (EC 132, art. 130; LC 214, art. 349 e seguintes). Esta skill NÃO estima alíquota de CBS ou IBS: use PREMISSA rotulada (do usuário) e modele-a como variável de sensibilidade.
 
-SPLIT PAYMENT: A partir de 2026 o imposto é recolhido no ato da transação
-(intermediado pela instituição financeira). Impacto no fluxo de caixa.
+SIMPLES NACIONAL: o optante pode apurar IBS e CBS pelo regime regular (LC 214, art. 41, § 3º); o crédito do adquirente em regime regular é equivalente ao devido pelo optante (art. 47). Avalie o efeito competitivo no B2B.
 
-⚠️ Para projeções além de 2026, modelar cenário de transição separado.
+SPLIT PAYMENT: previsto na LC 214 (arts. 31 a 35). Confirme data e regras no regulamento antes de modelar efeito no caixa.
+
+⚠️ Para projeção que atravesse 2026–2033, modele cenário de transição separado e informe a data de referência da norma.
 ```
 
 ---
@@ -189,14 +177,19 @@ SPLIT PAYMENT: A partir de 2026 o imposto é recolhido no ato da transação
 Selecione automaticamente o método mais adequado para **cada linha financeira** com base nas
 características dos dados. Explique a escolha antes de aplicar.
 
-| Situação dos dados | Método recomendado |
+Os limiares citados são **heurísticas**; **valide por backtest** (veja `references/metodos-de-projecao.md`).
+
+| Situação dos dados | Método candidato |
 |---|---|
-| Tendência linear clara (R² > 0,85) | `=FORECAST.LINEAR()` ou `=TREND()` |
-| Sazonalidade evidente (coef. variação > 15%) | Índice Sazonal × Tendência |
-| Dados estáveis sem tendência clara | Média Móvel Ponderada (pesos: 50/30/20) |
-| Custo variável (% de receita estável) | % Fixo sobre Receita Projetada |
-| Custo fixo estrutural | Flat + Reajuste por Inflação |
-| Poucos dados históricos (< 6 períodos) | Crescimento % definido pelo usuário |
+| Tendência clara e estável | Regressão linear (`FORECAST.LINEAR` ou `TREND`), com R² e resíduos verificados |
+| Sazonalidade evidente (ao menos dois ciclos) | Índice sazonal × tendência |
+| Dados estáveis sem tendência | Média móvel (simples ou ponderada) |
+| Custo variável | Percentual sobre a receita projetada |
+| Custo fixo estrutural | Valor atual + reajuste por índice declarado |
+| Poucos dados históricos (menos de 6 períodos) | Crescimento definido pelo usuário, rotulado como premissa |
+| Receita com drivers claros | Volume × preço (ou clientes × ticket) |
+
+**Backtest obrigatório** para as linhas relevantes: reserve os últimos 3 a 6 períodos, projete-os, calcule o MAPE e o viés e compare com o método ingênuo. Se o método não superar o ingênuo, simplifique. Informe o erro ao usuário.
 
 **Reporte ao usuário:**
 ```
@@ -220,9 +213,12 @@ Confirma os métodos antes de gerar a planilha?
 | 🟢 Otimista | Base × fator de upside (crescimento +X%, custos −Y%) | Verde |
 | 🔴 Pessimista | Base × fator de downside (crescimento −X%, custos +Y%) | Vermelho |
 
-**Regras dos fatores de cenário:**
-- Se o usuário não definir, use: Otimista = Base × 1,15 | Pessimista = Base × 0,85
-- Documente os fatores usados em uma aba de premissas
+**Regras dos cenários:**
+- Cenários são **variações de drivers** (volume, preço, mix, custo unitário, CAPEX), não multiplicadores arbitrários do resultado. Evite aplicar um fator único a todas as linhas, porque isso trata custo fixo como variável.
+- Se o usuário não definir as amplitudes, use valores **provisórios**, rotule-os como `PREMISSA a confirmar` e peça a justificativa (histórico, contrato, mercado).
+- Cada cenário mantém a **coerência interna** (volume maior implica custo variável e capital de giro maiores; CAPEX sustenta a capacidade).
+- Documente as amplitudes na aba de premissas. Probabilidades só com base fundamentada.
+- Para sensibilidade e fechamento dos três demonstrativos nos cenários, acione `mestre-modelagem-financeira`.
 
 ---
 
@@ -242,37 +238,34 @@ Para cada cenário, gere análise nas dimensões disponíveis:
 
 #### Lógica de Projeção de Impostos por Regime
 
+Os parâmetros e as fontes estão em `references/tributario.md`. Todo valor fiscal é sujeito a `VERIFICAR VIGÊNCIA`.
+
 **Simples Nacional:**
 ```
-RBT12 projetada = soma dos últimos 12 meses de receita projetada
-Faixa do Anexo = lookup na tabela RBT12 → alíquota nominal + parcela a deduzir
-Alíquota efetiva = (RBT12 × alíquota nominal − parcela deduzir) / RBT12
-DAS mensal = Receita do mês × alíquota efetiva
+RBT12 = soma da receita dos 12 meses anteriores ao período (histórico + projeção)
+Anexo e faixa = pela atividade (art. 18 da LC 123) e pela faixa da RBT12; fator R decide entre Anexo III e V
+Alíquota efetiva = (RBT12 × alíquota nominal − parcela a deduzir) / RBT12
+DAS do mês = receita do mês × alíquota efetiva
 ```
-Alerte quando RBT12 projetada se aproximar dos limites de faixa (risco de mudança de alíquota)
-ou do sublimite de R$ 3,6M (obrigatoriedade de recolher ICMS/ISS separadamente em alguns estados).
+Alerte quando a RBT12 projetada se aproximar do limite de faixa, do sublimite de ICMS e ISS (R$ 3,6M) ou do limite de R$ 4,8M (efeitos do excesso: LC 123, art. 3º, § 9º e seguintes). **Não presuma o anexo**: peça a atividade e o CNAE.
 
-**Lucro Presumido:**
+**Lucro Presumido (apuração trimestral):**
 ```
-Base IRPJ/CSLL = Receita Bruta × % presunção
-  Comércio/indústria: 8% (IRPJ) / 12% (CSLL)
-  Serviços em geral: 32% (IRPJ e CSLL)
-  Serviços hospitalares/transporte: 8% (IRPJ) / 12% (CSLL)
-IRPJ = Base × 15% + adicional 10% sobre base > R$20.000/mês
-CSLL = Base × 9%
-PIS = Receita Bruta × 0,65% (cumulativo)
-COFINS = Receita Bruta × 3,0% (cumulativo)
-ISS/ICMS = conforme município/estado e atividade
+Base IRPJ = receita bruta do trimestre × percentual de presunção da atividade (RIR, arts. 220 e 591)
+IRPJ = 15% × base + adicional de 10% sobre a parcela da base acima do limite do período
+CSLL = 9% × base (percentual de presunção da CSLL conforme a atividade)
+PIS e Cofins cumulativos: alíquotas da Lei 9.718/1998, que a Estante não traz (VERIFICAR VIGÊNCIA)
+ISS: de 2% a 5% (LC 116, arts. 8º e 8º-A), conforme o município e o item da lista
+ICMS: conforme o RICMS da UF (não use faixa de memória)
 ```
 
 **Lucro Real:**
 ```
-Base IRPJ/CSLL = Lucro Antes do IR (LAIR) ajustado por adições/exclusões
-IRPJ = LAIR × 15% + adicional 10% sobre LAIR > R$20.000/mês
-CSLL = LAIR × 9%
-PIS = Receita × 1,65% (não cumulativo, com créditos)
-COFINS = Receita × 7,6% (não cumulativo, com créditos)
-Créditos PIS/COFINS: insumos, energia, aluguéis, depreciação (verificar lista)
+Base IRPJ/CSLL = lucro líquido ajustado (adições, exclusões e compensações); sem esses dados, trate como PREMISSA
+IRPJ = 15% × base + adicional de 10% sobre a parcela acima de R$ 20.000 por mês (RIR, art. 225)
+CSLL = 9% × base
+Prejuízo fiscal: compensação limitada a 30% do lucro líquido ajustado (RIR, art. 580)
+PIS = 1,65% e Cofins = 7,6% sobre a receita, não cumulativos, com créditos conforme as Leis 10.637 e 10.833
 ```
 
 **Saída da planilha — aba `Impostos_Projetados`:**
@@ -309,7 +302,9 @@ Gere um arquivo `.xlsx` com a seguinte estrutura de abas:
 | `Impostos_Projetados` | Detalhamento linha a linha dos impostos por regime |
 | `Consolidado` | Visão comparativa dos 3 cenários lado a lado |
 | `Budget_vs_Real` | (Apenas se houver budget) Desvios absolutos e % |
-| `Alertas` | Linhas com crescimento anômalo, desvio > 15%, ou risco de faixa Simples |
+| `Alertas` | Linhas com crescimento anômalo, desvio acima do gatilho, ou risco de faixa do Simples |
+| `Backtest` | Erro (MAPE e viés) de cada método nas linhas relevantes, contra o método ingênuo |
+| `Checks` | Fechamentos (soma dos CCs, BUs, receita líquida, EBITDA) com VERDADEIRO ou FALSO |
 
 **Regras inegociáveis da planilha:**
 - ❌ Nunca sobrescrever dados históricos
@@ -375,20 +370,21 @@ CARGA TRIBUTÁRIA DETALHADA (cenário base, acumulado)
 4. **Conservadorismo técnico:** Em caso de dúvida entre métodos, prefira o mais conservador.
    Justifique a escolha.
 
-5. **Alertas proativos:** Identifique e reporte automaticamente:
+5. **Alertas proativos** (os limiares são **heurísticas**, ajustáveis ao negócio): identifique e reporte automaticamente:
    - Crescimento de qualquer linha > 30% mês a mês sem justificativa
    - Desvio acumulado vs budget > 15%
    - Margem projetada abaixo do mínimo histórico
    - Horizonte de projeção sem dados sazonais suficientes (< 12 meses históricos)
    - RBT12 projetada se aproximando do limite de faixa do Simples (alerta com 10% de margem)
    - Carga tributária projetada significativamente diferente da histórica (> 2 p.p.)
-   - Receita projetada ultrapassando R$ 4,8M ou R$ 78M (mudança de regime obrigatória)
+   - Receita projetada ultrapassando R$ 4,8M (efeitos do excesso no Simples) ou R$ 78M no ano anterior (obrigatoriedade do lucro real); veja `references/tributario.md`
 
 6. **Regras fiscais inegociáveis:**
    - Nunca calcular imposto sem confirmar o regime tributário
    - Nunca usar alíquota fixa sem verificar faixa/anexo correto do Simples
-   - Sempre sinalizar que NCM e CFOP precisam de validação com contador/advogado tributarista
+   - Nunca indicar NCM, CFOP ou alíquota de IPI de memória; orientar a consultar a TIPI e a tabela oficial, e validar com contador ou advogado tributarista
    - Sempre incluir bloco de Reforma Tributária em projeções que envolvam impostos
+   - Marcar `VERIFICAR VIGÊNCIA` em alíquota, limite e prazo que não tenham sido conferidos na norma
    - Sempre diferenciar impostos sobre faturamento (PIS, COFINS, ISS, DAS) de impostos sobre
      lucro (IRPJ, CSLL) — tratamentos distintos no DRE
 
@@ -406,4 +402,9 @@ Para padrões de formatação e estrutura de abas, consulte:
 → `references/estrutura-planilha.md`
 
 Para tabelas do Simples Nacional, alíquotas de presunção LP, e cronograma Reforma Tributária:
-→ `references/tributario.md`
+→ `references/tributario.md` (fatos conferidos nas leis da Estante, com artigo e limites; **não traz** NCM, CFOP nem estimativas de alíquota da reforma)
+
+Para escolha de método, backtest, índice sazonal, cenários por drivers e tipos de orçamento:
+→ `references/metodos-de-projecao.md`
+
+Casos de teste com respostas numéricas: `test_cases.json` (na pasta da skill).
